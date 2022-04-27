@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 export default function UsersTable() {
     const [users, setUsers] = useState([])
     useEffect(() => {
-        async function aux() {
+        async function usersComingHome() {
             const response = await fetch("https://fiubify-middleware-staging.herokuapp.com/user/", {
                 method: 'GET',
                 headers: {
@@ -13,9 +13,9 @@ export default function UsersTable() {
             const responseInJson = await response.json()
             setUsers(responseInJson.data.users)
         }
-        aux()
+        usersComingHome()
         const interval = setInterval(() => {
-            aux()
+            usersComingHome()
         }, 6000);
         return () => clearInterval(interval);
     }, [])
