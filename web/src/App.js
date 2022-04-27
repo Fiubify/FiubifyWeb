@@ -1,9 +1,8 @@
 import './App.css';
+import UsersTable from "./components/UsersTable";
 
 function App() {
-  return (
-    <h1>Aplicacion web - FIUBIFY</h1>
-  );
+  return <UsersTable />
 }
 
 export default App;
