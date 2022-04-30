@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 
-export default function UserRow({ id, uid, email, role, blocked }) {
+function UserRow({ _id, uid, email, role, disabled }) {
   return (
     <tr>
-      <td>{id}</td>
+      <td>{_id}</td>
       <td>{uid}</td>
       <td>{email}</td>
       <td>{role}</td>
-      <td>{String(blocked)}</td>
+      <td>{String(disabled)}</td>
     </tr>
   );
 }
@@ -17,5 +17,7 @@ UserRow.propTypes = {
   uid: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
-  blocked: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool.isRequired,
 };
+
+export default UserRow;

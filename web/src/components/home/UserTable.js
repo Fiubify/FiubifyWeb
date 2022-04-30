@@ -1,9 +1,28 @@
 import UserRow from './UserRow';
+import { useEffect, useState } from 'react';
 
 export default function UsersTable() {
-  const users = [
-    { id: 1, uid: 2, email: 'Roberto', role: 'Admin', blocked: false },
-  ];
+  const [users, setUsers] = useState([]);
+
+  async function fetchUsers() {
+    const response = await fetch(
+      'https://fiubify-middleware-staging.herokuapp.com/user/',
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    const fetchResponse = await response.json();
+    console.log(fetchResponse);
+    setUsers(fetchResponse.data.users);
+  }
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   return (
     <table>
@@ -13,7 +32,7 @@ export default function UsersTable() {
           <th>Uid</th>
           <th>Email</th>
           <th>Role</th>
-          <th>Blocked?</th>
+          <th>Disabled?</th>
         </tr>
       </thead>
       <tbody>{users.map((user) => UserRow(user))}</tbody>
