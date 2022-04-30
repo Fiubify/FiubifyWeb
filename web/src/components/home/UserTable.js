@@ -1,7 +1,9 @@
 import UserRow from './UserRow';
 
 export default function UsersTable() {
-  const users = [{ id: 1, uid: 2, email: 'Roberto', role: 'Admin' }];
+  const users = [
+    { id: 1, uid: 2, email: 'Roberto', role: 'Admin', blocked: false },
+  ];
 
   return (
     <table>
@@ -11,6 +13,7 @@ export default function UsersTable() {
           <th>Uid</th>
           <th>Email</th>
           <th>Role</th>
+          <th>Blocked?</th>
         </tr>
       </thead>
       <tbody>{users.map((user) => UserRow(user))}</tbody>
