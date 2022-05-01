@@ -1,3 +1,4 @@
+import { Button, TableCell, TableRow } from '@mui/material';
 import PropTypes from 'prop-types';
 
 export default function UserRow({ user, handleBlockUser, handleUnblockUser }) {
@@ -6,16 +7,18 @@ export default function UserRow({ user, handleBlockUser, handleUnblockUser }) {
   const buttonAction = disabled ? handleUnblockUser : handleBlockUser;
 
   return (
-    <tr>
-      <td>{_id}</td>
-      <td>{uid}</td>
-      <td>{email}</td>
-      <td>{role}</td>
-      <td>{String(disabled)}</td>
-      <td>
-        <button onClick={() => buttonAction(_id)}>{buttonText}</button>
-      </td>
-    </tr>
+    <TableRow>
+      <TableCell>{_id}</TableCell>
+      <TableCell>{uid}</TableCell>
+      <TableCell>{email}</TableCell>
+      <TableCell>{role}</TableCell>
+      <TableCell>{String(disabled)}</TableCell>
+      <TableCell>
+        <Button variant='contained' onClick={() => buttonAction(_id)}>
+          {buttonText}
+        </Button>
+      </TableCell>
+    </TableRow>
   );
 }
 

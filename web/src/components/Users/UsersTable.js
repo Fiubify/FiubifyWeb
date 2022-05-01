@@ -1,4 +1,13 @@
+import {
+  TableBody,
+  TableCell,
+  Table,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from '@mui/material';
 import UserRow from './UserRow';
+
 import PropTypes from 'prop-types';
 
 export default function UsersTable({
@@ -7,28 +16,30 @@ export default function UsersTable({
   handleUnblockUser,
 }) {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Uid</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th>Blocked?</th>
-          <th>Operation</th>
-        </tr>
-      </thead>
-      <tbody>
-        {users.map((user) => (
-          <UserRow
-            key={user._id}
-            user={user}
-            handleBlockUser={handleBlockUser}
-            handleUnblockUser={handleUnblockUser}
-          />
-        ))}
-      </tbody>
-    </table>
+    <TableContainer>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Id</TableCell>
+            <TableCell>Uid</TableCell>
+            <TableCell>Email</TableCell>
+            <TableCell>Role</TableCell>
+            <TableCell>Blocked?</TableCell>
+            <TableCell>Operation</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {users.map((user) => (
+            <UserRow
+              key={user._id}
+              user={user}
+              handleBlockUser={handleBlockUser}
+              handleUnblockUser={handleUnblockUser}
+            />
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
 

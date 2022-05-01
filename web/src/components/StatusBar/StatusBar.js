@@ -1,11 +1,11 @@
+import { Stack } from '@mui/material';
 import PropTypes from 'prop-types';
 import ErrorStatus from './ErrorStatus';
 import OkStatus from './OkStatus';
 
 export default function StatusBar({ actions }) {
-  console.log(actions);
   return (
-    <div>
+    <Stack>
       {actions.map((action) => {
         if (action.type === 'error') {
           return <ErrorStatus message={action.msg} />;
@@ -13,7 +13,7 @@ export default function StatusBar({ actions }) {
           return <OkStatus message={action.msg} />;
         }
       })}
-    </div>
+    </Stack>
   );
 }
 

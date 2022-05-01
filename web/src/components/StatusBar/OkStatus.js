@@ -1,7 +1,13 @@
+import { Alert, AlertTitle } from '@mui/material';
 import PropTypes from 'prop-types';
 
 export default function OkStatus({ message }) {
-  return <h3 style={{ color: 'green' }}>{message}</h3>;
+  return (
+    <Alert severity='success'>
+      <AlertTitle>Successful operation</AlertTitle>
+      {message}
+    </Alert>
+  );
 }
 
 OkStatus.propTypes = {
