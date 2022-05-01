@@ -1,4 +1,6 @@
-import { Button, TableCell, TableRow } from '@mui/material';
+import { TableCell, TableRow } from '@mui/material';
+import ButtonWithLoading from '../Buttons/ButtonWithLoading';
+
 import PropTypes from 'prop-types';
 
 export default function UserRow({ user, handleBlockUser, handleUnblockUser }) {
@@ -13,10 +15,13 @@ export default function UserRow({ user, handleBlockUser, handleUnblockUser }) {
       <TableCell>{email}</TableCell>
       <TableCell>{role}</TableCell>
       <TableCell>{String(disabled)}</TableCell>
-      <TableCell>
-        <Button variant='contained' onClick={() => buttonAction(_id)}>
+      <TableCell align='center'>
+        <ButtonWithLoading
+          variant={'contained'}
+          onClickHandler={() => buttonAction(_id)}
+        >
           {buttonText}
-        </Button>
+        </ButtonWithLoading>
       </TableCell>
     </TableRow>
   );

@@ -25,7 +25,7 @@ export default function UsersTable({
             <TableCell>Email</TableCell>
             <TableCell>Role</TableCell>
             <TableCell>Blocked?</TableCell>
-            <TableCell>Operation</TableCell>
+            <TableCell align='center'>Operation</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
