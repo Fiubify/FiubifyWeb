@@ -1,4 +1,4 @@
-import { TableCell, TableRow } from '@mui/material';
+import { TableCell, TableRow, Chip } from '@mui/material';
 import ButtonWithLoading from '../Buttons/ButtonWithLoading';
 
 import PropTypes from 'prop-types';
@@ -13,8 +13,15 @@ export default function UserRow({ user, handleBlockUser, handleUnblockUser }) {
       <TableCell>{_id}</TableCell>
       <TableCell>{uid}</TableCell>
       <TableCell>{email}</TableCell>
-      <TableCell>{role}</TableCell>
-      <TableCell>{String(disabled)}</TableCell>
+      <TableCell>
+        <Chip color='info' label={role}></Chip>
+      </TableCell>
+      <TableCell>
+        <Chip
+          color={disabled ? 'error' : 'success'}
+          label={String(disabled).toUpperCase()}
+        />
+      </TableCell>
       <TableCell align='center'>
         <ButtonWithLoading
           variant={'contained'}
