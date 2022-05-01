@@ -15,7 +15,7 @@ export default function ButtonWithLoading({
   };
 
   return loading ? (
-    <CircularProgress />
+    <CircularProgress size={32} />
   ) : (
     <Button variant={variant} onClick={() => wrapOnClickHandler()}>
       {children}
