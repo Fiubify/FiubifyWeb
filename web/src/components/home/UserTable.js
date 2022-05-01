@@ -24,6 +24,54 @@ export default function UsersTable() {
     fetchUsers();
   }, []);
 
+  const handleBlockUser = async (id) => {
+    const response = await fetch(
+      `https://fiubify-middleware-staging.herokuapp.com/user/block/${id}`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    console.log(response);
+
+    setUsers(
+      users.map((user) => {
+        if (user._id === id) {
+          user.disabled = true;
+        }
+
+        return user;
+      })
+    );
+  };
+
+  const handleUnblockUser = async (id) => {
+    const response = await fetch(
+      `https://fiubify-middleware-staging.herokuapp.com/user/unblock/${id}`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    console.log(response);
+
+    setUsers(
+      users.map((user) => {
+        if (user._id === id) {
+          user.disabled = false;
+        }
+
+        return user;
+      })
+    );
+  };
+
   return (
     <table>
       <thead>
@@ -32,10 +80,13 @@ export default function UsersTable() {
           <th>Uid</th>
           <th>Email</th>
           <th>Role</th>
-          <th>Disabled?</th>
+          <th>Blocked?</th>
+          <th>Operation</th>
         </tr>
       </thead>
-      <tbody>{users.map((user) => UserRow(user))}</tbody>
+      <tbody>
+        {users.map((user) => UserRow(user, handleBlockUser, handleUnblockUser))}
+      </tbody>
     </table>
   );
 }
