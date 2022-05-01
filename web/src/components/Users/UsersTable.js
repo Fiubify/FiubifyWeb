@@ -21,6 +21,7 @@ export default function UsersTable({
       <tbody>
         {users.map((user) => (
           <UserRow
+            key={user._id}
             user={user}
             handleBlockUser={handleBlockUser}
             handleUnblockUser={handleUnblockUser}
