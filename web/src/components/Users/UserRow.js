@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 
-function UserRow(
-  { _id, uid, email, role, disabled },
-  handleBlockUser,
-  handleUnblockUser
-) {
+function UserRow(user, handleBlockUser, handleUnblockUser) {
+  const { _id, uid, email, role, disabled } = user;
   const buttonText = disabled ? 'Unblock' : 'Block';
   const buttonAction = disabled ? handleUnblockUser : handleBlockUser;
 
@@ -29,7 +26,7 @@ UserRow.propTypes = {
     email: PropTypes.string.isRequired,
     role: PropTypes.string.isRequired,
     disabled: PropTypes.bool.isRequired,
-  }),
+  }).isRequired,
   handleBlockUser: PropTypes.func.isRequired,
   handleUnblockUser: PropTypes.func.isRequired,
 };
