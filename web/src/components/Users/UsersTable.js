@@ -1,7 +1,11 @@
 import UserRow from './UserRow';
 import PropTypes from 'prop-types';
 
-export default function UsersTable(users, handleBlockUser, handleUnblockUser) {
+export default function UsersTable({
+  users,
+  handleBlockUser,
+  handleUnblockUser,
+}) {
   return (
     <table>
       <thead>
@@ -30,7 +34,7 @@ export default function UsersTable(users, handleBlockUser, handleUnblockUser) {
 UsersTable.propTypes = {
   users: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      _id: PropTypes.string.isRequired,
       uid: PropTypes.string.isRequired,
       email: PropTypes.string.isRequired,
       role: PropTypes.string.isRequired,

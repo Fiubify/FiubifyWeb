@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-function UserRow(user, handleBlockUser, handleUnblockUser) {
+export default function UserRow({ user, handleBlockUser, handleUnblockUser }) {
   const { _id, uid, email, role, disabled } = user;
   const buttonText = disabled ? 'Unblock' : 'Block';
   const buttonAction = disabled ? handleUnblockUser : handleBlockUser;
@@ -21,7 +21,7 @@ function UserRow(user, handleBlockUser, handleUnblockUser) {
 
 UserRow.propTypes = {
   user: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     uid: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     role: PropTypes.string.isRequired,
@@ -30,5 +30,3 @@ UserRow.propTypes = {
   handleBlockUser: PropTypes.func.isRequired,
   handleUnblockUser: PropTypes.func.isRequired,
 };
-
-export default UserRow;

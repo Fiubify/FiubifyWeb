@@ -24,7 +24,7 @@ async function blockUser(id) {
     }
   );
 
-  console.log(response);
+  return response;
 }
 
 async function unblockUser(id) {
@@ -37,7 +37,7 @@ async function unblockUser(id) {
       },
     }
   );
-  console.log(response);
+  return response;
 }
 
 export { getUsers, blockUser, unblockUser };
