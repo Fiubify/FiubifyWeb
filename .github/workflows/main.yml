@@ -12,3 +12,5 @@ jobs:
       - name: test action step
         uses: ./ # Uses an action in the root directory
         id: hello
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
