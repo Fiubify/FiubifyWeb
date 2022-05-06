@@ -1,5 +1,5 @@
 FROM node:alpine
-COPY . /app
-WORKDIR /app
+COPY . /web
+WORKDIR /web
 
 ENTRYPOINT ["./entrypoint.sh"]
