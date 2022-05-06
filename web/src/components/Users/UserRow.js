@@ -16,7 +16,7 @@ export default function UserRow({ user, handleBlockUser, handleUnblockUser }) {
       <TableCell>
         <Chip color='info' label={role}></Chip>
       </TableCell>
-      <TableCell>
+      <TableCell role={'status'}>
         <Chip
           color={disabled ? 'error' : 'success'}
           label={String(disabled).toUpperCase()}
