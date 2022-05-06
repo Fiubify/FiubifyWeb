@@ -4,13 +4,17 @@ import ErrorStatus from './ErrorStatus';
 import OkStatus from './OkStatus';
 
 export default function StatusBar({ actions }) {
+  let counter = 0;
+
   return (
     <Stack>
       {actions.map((action) => {
         if (action.type === 'error') {
-          return <ErrorStatus message={action.msg} />;
+          counter++;
+          return <ErrorStatus key={counter} message={action.msg} />;
         } else {
-          return <OkStatus message={action.msg} />;
+          counter++;
+          return <OkStatus key={counter} message={action.msg} />;
         }
       })}
     </Stack>
