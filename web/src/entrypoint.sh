@@ -2,4 +2,4 @@
 
 cd web
 npm install
-npm test
+npm run start
