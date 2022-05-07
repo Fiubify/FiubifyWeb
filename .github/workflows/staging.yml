@@ -13,7 +13,7 @@ jobs:
 
       - name: Run Tests
         run: npm test
-        working-directory: ./web/src
+        working-directory: ./web
   
   Deploy-Staging:
     runs-on: ubuntu-latest
