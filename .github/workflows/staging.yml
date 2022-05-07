@@ -12,7 +12,9 @@ jobs:
         working-directory: ./web/src
 
       - name: Run Tests
-        run: npm test
+        run: | 
+          npm run build --if-present
+          npm test
         working-directory: ./web/src
   
   Deploy-Staging:
