@@ -8,12 +8,12 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install npm dependencies
-        run: npm install --only=dev
-        working-directory: ./web
+        run: npm install
+        working-directory: ./web/src
 
       - name: Run Tests
         run: npm test
-        working-directory: ./web
+        working-directory: ./web/src
   
   Deploy-Staging:
     runs-on: ubuntu-latest
