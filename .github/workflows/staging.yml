@@ -9,13 +9,13 @@ jobs:
 
       - name: Install npm dependencies
         run: npm install
-        working-directory: ./web/src
+        working-directory: ../web/src
 
       - name: Run Tests
         run: | 
           npm run build --if-present
           npm test
-        working-directory: ./web/src
+        working-directory: ../web/src
   
   Deploy-Staging:
     runs-on: ubuntu-latest
