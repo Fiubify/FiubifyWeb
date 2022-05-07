@@ -10,7 +10,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: test action step
-        uses: ./ # Uses an action in the root directory
         id: hello
   
   Deploy-Staging:
