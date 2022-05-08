@@ -1,4 +1,4 @@
 #!/bin/sh -l
 
-docker build -t fiubify-test .
-docker container run -it --rm fiubify-test
+docker build -t fiubify-web .
+docker run -p 3000:3000 fiubify-web 
