@@ -5,7 +5,7 @@ on:
 jobs:
   Testing:
     runs-on: ubuntu-latest
-    name: A job to test react app
+    name: A job for testing React App
     steps:
       - uses: actions/checkout@v3
 
