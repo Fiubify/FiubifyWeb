@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, logInWithEmailAndPassword } from "./../firebase";
+import {onAuthStateChanged } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-//import "./Login.css";
-function Login() {
+import "./Login.css";
+
+function Login({setLoggedIn, setToken}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [user, loading, error] = useAuthState(auth);
@@ -13,8 +15,14 @@ function Login() {
             // maybe trigger a loading screen
             return;
         }
-        if (user) navigate("/dashboard");
+        if (user) {
+            setToken(user.accessToken);
+            setLoggedIn(true);
+            navigate("/dashboard");
+        }
     }, [user, loading]);
+
+
     return (
         <div className="login">
             <div className="login__container">
