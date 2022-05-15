@@ -37,14 +37,15 @@ function Login({setLoggedIn, setToken}) {
             }*/
             user.getIdToken()//refresca el token si expiro
                 .then((token) => {
+                    console.log(token)
                     fetch("https://fiubify-middleware-staging.herokuapp.com/auth/validate/admin", {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: {
-                            token: token
-                        }
+                        body: JSON.stringify({
+                            token:`${token}`
+                        })
                     }).then((response) => {
                         if (response.status === 200) {
                             setToken(user);
