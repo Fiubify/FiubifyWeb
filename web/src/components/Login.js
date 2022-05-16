@@ -1,13 +1,17 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {auth, logInWithEmailAndPassword} from "./../firebase";
+import {auth, logInWithEmailAndPassword} from "../firebase";
 import {useAuthState} from "react-firebase-hooks/auth";
 import "./Login.css";
 import {signOut} from "firebase/auth";
+import ErrPopup from "./ErrPopup";
 
 function Login({setLoggedIn, setToken}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [popupTrigger, setPopupTrigger] = useState(false);
+    const [errStatus, setErrStatus] = useState(0);
+    const [errMsg, setErrMsg] = useState("");
     const [user, loading, error] = useAuthState(auth);
     const navigate = useNavigate();
     useEffect(() => {
@@ -54,9 +58,12 @@ function Login({setLoggedIn, setToken}) {
                         } else {
                             //mostrar pantalla de "acceso no disponible a no-admin-users"
                             signOut(auth).then(()=>{
-                                console.log("No es admin");
+                                /*console.log("No es admin");
                                 console.log("status: ", response.status);
-                                navigate("/");
+                                navigate("/");*/
+                                setErrMsg("No Admin Account");
+                                setErrStatus(response.status);
+                                setPopupTrigger(true);
                             }).catch((error)=>{
                                 console.log(error);
                             })
@@ -96,6 +103,7 @@ function Login({setLoggedIn, setToken}) {
                     Login
                 </button>
             </div>
+            <ErrPopup trigger={popupTrigger} status={errStatus} message={errMsg} dest="/"></ErrPopup>
         </div>
     );
 }
