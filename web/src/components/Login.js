@@ -12,7 +12,7 @@ function Login({setLoggedIn, setToken}) {
     const [popupTrigger, setPopupTrigger] = useState(false);
     const [errStatus, setErrStatus] = useState(0);
     const [errMsg, setErrMsg] = useState("");
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading, _error] = useAuthState(auth);
     const navigate = useNavigate();
     useEffect(() => {
         if (loading) {
@@ -20,25 +20,6 @@ function Login({setLoggedIn, setToken}) {
             return;
         }
         if (user) {
-            /*try {
-                validateAdmin(user.getIdToken())//refresca el token si expiro
-                    .then((status) => {
-                        if (status === 200) {
-                            setToken(user);
-                            setLoggedIn(true);
-                            navigate("/dashboard");
-                        } else {
-                            //mostrar pantalla de "acceso no disponible a no-admin-users"
-                            console.log("No es admin");
-                            console.log("status: ", response.status);
-                            useNavigate("/");
-                        }
-                }).catch((error) => {
-                    console.log(error);
-                });
-            } catch(e) {
-                console.log(e);
-            }*/
             user.getIdToken()//refresca el token si expiro
                 .then((token) => {
                     console.log(token)
@@ -56,11 +37,7 @@ function Login({setLoggedIn, setToken}) {
                             setLoggedIn(true);
                             navigate("/dashboard");
                         } else {
-                            //mostrar pantalla de "acceso no disponible a no-admin-users"
                             signOut(auth).then(()=>{
-                                /*console.log("No es admin");
-                                console.log("status: ", response.status);
-                                navigate("/");*/
                                 setErrMsg("No Admin Account");
                                 setErrStatus(response.status);
                                 setPopupTrigger(true);
@@ -103,7 +80,7 @@ function Login({setLoggedIn, setToken}) {
                     Login
                 </button>
             </div>
-            <ErrPopup trigger={popupTrigger} status={errStatus} message={errMsg} dest="/"></ErrPopup>
+            <ErrPopup trigger={popupTrigger} setTrigger={setPopupTrigger} status={errStatus} message={errMsg} dest="/"></ErrPopup>
         </div>
     );
 }
