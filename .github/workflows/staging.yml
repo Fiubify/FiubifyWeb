@@ -1,0 +1,36 @@
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Testing:
+    runs-on: ubuntu-latest
+    name: A job for testing React App
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install npm dependencies
+        run: npm install
+        working-directory: ./web
+
+      - name: Run Tests
+        run: | 
+          npm run build --if-present
+          npm test
+        working-directory: ./web
+  
+  Deploy-Staging:
+    runs-on: ubuntu-latest
+    needs: testing
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy Staging
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "fiubify-web-staging"
+          heroku_email: "services.manager.web@gmail.com"
+          usedocker: true
+          appdir: ./web
