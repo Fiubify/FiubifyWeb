@@ -1,5 +1,5 @@
-function LoggedInChecker({component, loggedIn}) {
-    if (loggedIn) {
+function LoggedInChecker({component, token}) {
+    if (token !== '') {
         return <div>{component}</div>
     } else {
         return <div>
