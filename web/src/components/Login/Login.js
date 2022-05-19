@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {auth, logInWithEmailAndPassword} from "../firebase";
+import {auth, logInWithEmailAndPassword} from "../../firebase";
 import {useAuthState} from "react-firebase-hooks/auth";
 import "./Login.css";
 import {signOut} from "firebase/auth";
-import ErrPopup from "./ErrPopup";
+import ErrPopup from "../ErrPopup";
 
 function Login({setLoggedIn, setToken}) {
     const [email, setEmail] = useState("");
@@ -80,7 +80,7 @@ function Login({setLoggedIn, setToken}) {
                     Login
                 </button>
             </div>
-            <ErrPopup trigger={popupTrigger} setTrigger={setPopupTrigger} status={errStatus} message={errMsg} dest="/"></ErrPopup>
+            <ErrPopup trigger={popupTrigger} setTrigger={setPopupTrigger} status={errStatus} message={errMsg}></ErrPopup>
         </div>
     );
 }

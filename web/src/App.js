@@ -1,9 +1,9 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 import UsersPage from './components/Users/UsersPage';
 import {useState} from "react";
-import LoggedInChecker from "./components/LoggedInChecker";
+import LoggedInChecker from "./components/Login/LoggedInChecker";
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
     const [_token, setToken] = useState('');
