@@ -2,12 +2,11 @@ import './ProfilePopup.css'
 import PropTypes from "prop-types";
 
 function ProfilePopup({trigger, setTrigger, user}) {
-    //const {_id, uid, email, role, disabled} = user;
     if (user) {
         const {name, surname, birthdate, plan} = user;
         return (trigger) ? (<div className="popup">
             <div className="popup-inner">
-                <title>User Profile</title>
+                <h2>User Profile</h2>
                 <h5>Name: {name}</h5>
                 <h5>Surname: {surname}</h5>
                 <h5>Birthdate: {birthdate}</h5>
@@ -19,17 +18,15 @@ function ProfilePopup({trigger, setTrigger, user}) {
     } else {
         return "";
     }
-
-
 }
 
 export default ProfilePopup;
 
 ProfilePopup.propTypes = {
     user: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        surname: PropTypes.string.isRequired,
-        birthdate: PropTypes.any.isRequired,
+        name: PropTypes.string,
+        surname: PropTypes.string,
+        birthdate: PropTypes.any,
         plan: PropTypes.string.isRequired,
     }),
 };
