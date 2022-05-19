@@ -4,7 +4,7 @@ import {auth, logInWithEmailAndPassword} from "../../firebase";
 import {useAuthState} from "react-firebase-hooks/auth";
 import "./Login.css";
 import {signOut} from "firebase/auth";
-import ErrPopup from "../ErrPopup";
+import ErrPopup from "../Popup/ErrPopup";
 
 function Login({setLoggedIn, setToken}) {
     const [email, setEmail] = useState("");
