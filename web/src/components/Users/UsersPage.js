@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 import UsersTable from './UsersTable';
 import StatusBar from '../StatusBar/StatusBar';
 import { blockUser, unblockUser, getUsers } from '../../utils/api/usersApi';
+import NavBar from "../NavBar";
 
-export default function UsersPage() {
+export default function UsersPage({setToken}) {
   const [users, setUsers] = useState([]);
   const [apiActions, setApiAction] = useState([]);
 
@@ -62,6 +63,9 @@ export default function UsersPage() {
 
   return (
     <div>
+      <div>
+        <NavBar setToken={setToken}/>
+      </div>
       <StatusBar actions={apiActions} />
       <UsersTable
         users={users}

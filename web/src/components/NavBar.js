@@ -8,12 +8,14 @@ import {
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import {useNavigate} from "react-router-dom";
+import {signOut} from "firebase/auth";
+import {auth} from "../firebase";
 
 // const useStyles = makeStyles(theme => ({
 //     offset: theme.mixins.toolbar,
 // }))
 
-function NavBar() {
+function NavBar({setToken}) {
     const navigate = useNavigate();
 
     return (<Box sx={{flexGrow: 1}}>
@@ -37,7 +39,16 @@ function NavBar() {
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     <Button sx={{ my: 2, color: 'white', display: 'block' }}>Content</Button>
                 </Box>
-                <Button color="inherit">Logout</Button>
+                <Button onClick={() => {
+                    signOut(auth).then(() => {
+                        setToken('');
+                        navigate("/");
+                    }).catch((error) => {
+                        setToken('');
+                        navigate("/");
+                        console.log(error);
+                    })
+                }} color="inherit">Logout</Button>
             </Toolbar>
         </AppBar>
     </Box>);

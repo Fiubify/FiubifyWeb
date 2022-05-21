@@ -17,8 +17,8 @@ function App() {
                     {/*<Route exact path="/dashboard"
                             element={<LoggedInChecker component={<UsersPage/>} token={token}/>}/>
                     */}
-                    <Route exact path="/dashboard" element={<LoggedInChecker component={<NavBar/>} token={token}/>}/>
-                    <Route exact path="/users" element={<LoggedInChecker component={<UsersPage/>} token={token}/>}/>
+                    <Route exact path="/dashboard" element={<LoggedInChecker component={<NavBar setToken={setToken}/>} token={token}/>}/>
+                    <Route exact path="/users" element={<LoggedInChecker component={<UsersPage setToken={setToken}/>} token={token}/>}/>
                     <Route exact path="/content" element={<LoggedInChecker component={<ContentPage/>} token={token}/>}/>
                 </Routes>
             </Router>
