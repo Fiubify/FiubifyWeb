@@ -13,9 +13,6 @@ function App() {
             <Router>
                 <Routes>
                     <Route exact path="/" element={<Login setToken={setToken}/>} />
-                    {/*<Route exact path="/dashboard"
-                            element={<LoggedInChecker component={<UsersPage/>} token={token}/>}/>
-                    */}
                     <Route exact path="/dashboard" element={<LoggedInChecker component={<NavBar setToken={setToken}/>} token={token}/>}/>
                     <Route exact path="/users" element={<LoggedInChecker component={<UsersPage setToken={setToken}/>} token={token}/>}/>
                 </Routes>

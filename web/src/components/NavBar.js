@@ -11,10 +11,6 @@ import {useNavigate} from "react-router-dom";
 import {signOut} from "firebase/auth";
 import {auth} from "../firebase";
 
-// const useStyles = makeStyles(theme => ({
-//     offset: theme.mixins.toolbar,
-// }))
-
 function NavBar({setToken}) {
     const navigate = useNavigate();
 
