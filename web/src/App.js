@@ -4,7 +4,8 @@ import Login from "./components/Login/Login";
 import UsersPage from './components/Users/UsersPage';
 import {useState} from "react";
 import LoggedInChecker from "./components/Login/LoggedInChecker";
-import NavBar from "./components/NavBar";
+import HomeNavBar from "./components/NavBars/HomeNavBar";
+
 function App() {
     const [token, setToken] = useState('');
 
@@ -13,7 +14,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route exact path="/" element={<Login setToken={setToken}/>} />
-                    <Route exact path="/dashboard" element={<LoggedInChecker component={<NavBar setToken={setToken}/>} token={token}/>}/>
+                    <Route exact path="/dashboard" element={<LoggedInChecker component={<HomeNavBar setToken={setToken}/>} token={token}/>}/>
                     <Route exact path="/users" element={<LoggedInChecker component={<UsersPage setToken={setToken}/>} token={token}/>}/>
                 </Routes>
             </Router>
