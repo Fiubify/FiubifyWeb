@@ -9,13 +9,9 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import {useNavigate} from "react-router-dom";
 import {signOut} from "firebase/auth";
-import {auth} from "../firebase";
+import {auth} from "../../firebase";
 
-// const useStyles = makeStyles(theme => ({
-//     offset: theme.mixins.toolbar,
-// }))
-
-function NavBar({setToken}) {
+function HomeNavBar({setToken}) {
     const navigate = useNavigate();
 
     return (<Box sx={{flexGrow: 1}}>
@@ -54,4 +50,4 @@ function NavBar({setToken}) {
     </Box>);
 }
 
-export default NavBar;
+export default HomeNavBar;
