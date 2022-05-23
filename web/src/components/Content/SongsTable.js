@@ -3,7 +3,6 @@ import SongRow from "./SongRow";
 import PropTypes from "prop-types";
 
 export default function SongsTable({content}) {
-    //Analizar cuales campos se van a tener de SONGS
     return (<div>
         <div>
             <TableContainer>
