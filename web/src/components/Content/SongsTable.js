@@ -11,12 +11,13 @@ export default function SongsTable({content}) {
                     <TableHead>
                         <TableRow>
                             <TableCell>Title</TableCell>
-                            <TableCell>Description</TableCell>
+                            <TableCell>Artist_ID</TableCell>
+                            <TableCell>Album_ID</TableCell>
                             <TableCell>Duration</TableCell>
-                            <TableCell>Artist</TableCell>
                             <TableCell>URL</TableCell>
                             <TableCell>Tier</TableCell>
-                            <TableCell>Album</TableCell>
+                            <TableCell>Genre</TableCell>
+                            <TableCell>Description</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -35,11 +36,12 @@ SongsTable.propTypes = {
     content: PropTypes.arrayOf(PropTypes.shape({
         _id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
+        artist_id: PropTypes.any.isRequired,
+        album_id: PropTypes.any.isRequired,
         duration: PropTypes.number.isRequired,
-        artist: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
         tier: PropTypes.string.isRequired,
-        album: PropTypes.string.isRequired,
+        genre: PropTypes.string.isRequired,
+        description: PropTypes.string,
     }).isRequired).isRequired,
 };

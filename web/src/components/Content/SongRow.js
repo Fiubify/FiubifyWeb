@@ -22,11 +22,12 @@ SongRow.propTypes = {
     song: PropTypes.shape({
         _id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
+        artist_id: PropTypes.any.isRequired,
+        album_id: PropTypes.any.isRequired,
         duration: PropTypes.number.isRequired,
-        artist: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
         tier: PropTypes.string.isRequired,
-        album: PropTypes.string.isRequired,
+        genre: PropTypes.string.isRequired,
+        description: PropTypes.string,
     }).isRequired,
 };
