@@ -1,11 +1,16 @@
 import {TableCell, TableRow} from "@mui/material";
 import PropTypes from "prop-types";
 
-export default function AlbumRow({album}) {
+export default function AlbumRow({album, turnOnPopup, setAlbum2Show}) {
     const {_id, title, tracks, artist_id, tier} = album;
     //mostrar tracks como popup al clickear el title
     return (<TableRow>
-            <TableCell>{_id}</TableCell>
+            <TableCell><p onClick={() => {
+                turnOnPopup(true);
+                if (tracks) {
+                    setAlbum2Show(album);
+                }
+            }}>{_id}</p></TableCell>
             <TableCell>{title}</TableCell>
             <TableCell>{artist_id}</TableCell>
             <TableCell>{tier}</TableCell>
