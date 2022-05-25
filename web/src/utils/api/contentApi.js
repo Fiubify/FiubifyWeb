@@ -1,6 +1,6 @@
 async function getContent(contentType) {
     const response = await fetch(
-        `https://fiubify-middleware-staging.herokuapp.com/content/${contentType}`,//habria que pegarle a una url de este estilo
+        `https://fiubify-middleware-staging.herokuapp.com/contents/songs/`,
         {
             method: 'GET',
             headers: {
@@ -12,4 +12,4 @@ async function getContent(contentType) {
     return await response.json();
 }
 
-export { getContent };
+export {getContent};
