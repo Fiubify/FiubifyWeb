@@ -18,9 +18,6 @@ export default function ContentPage() {
     async function fetchContent(contentType) {
         const apiResponse = await getContent(contentType);
         setContents(apiResponse.data);
-        console.log(contents);
-        console.log(apiResponse.data);
-        console.log(apiResponse.status);
     }
 
     useEffect(() => {
