@@ -1,7 +1,7 @@
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import SongRow from "./SongRow";
 import PropTypes from "prop-types";
-import {useState} from "@types/react";
+import {useState} from "react";
 import SongDescriptionPopup from "../Popup/SongDescriptionPopup";
 
 export default function SongsTable({content}) {
@@ -21,12 +21,11 @@ export default function SongsTable({content}) {
                             <TableCell>URL</TableCell>
                             <TableCell>Tier</TableCell>
                             <TableCell>Genre</TableCell>
-                            <TableCell>Description</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {content.map((song) => (<SongRow
-                            key={song._id}
+                            key={song.url}
                             song={song}
                             turnOnPopup={setPopupOn}
                             setSongDescription={setSong2Describe}
@@ -41,10 +40,9 @@ export default function SongsTable({content}) {
 
 SongsTable.propTypes = {
     content: PropTypes.arrayOf(PropTypes.shape({
-        _id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        artist_id: PropTypes.any.isRequired,
-        album_id: PropTypes.any.isRequired,
+        artistId: PropTypes.string.isRequired,
+        albumId: PropTypes.string.isRequired,
         duration: PropTypes.number.isRequired,
         url: PropTypes.string.isRequired,
         tier: PropTypes.string.isRequired,
