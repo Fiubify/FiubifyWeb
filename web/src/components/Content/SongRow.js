@@ -1,12 +1,17 @@
 import {TableCell, TableRow} from "@mui/material";
 import PropTypes from "prop-types";
 
-export default function SongRow({song}) {
+export default function SongRow({song, turnOnPopup, setSongDescription}) {
     const {_id, title, artist_id, album_id,duration, url, tier, genre, description} = song;
 
     return (
         <TableRow>
-            <TableCell>{_id}</TableCell>
+            <TableCell><p onClick={() => {
+                turnOnPopup(true);
+                if (description) {
+                    setSongDescription(song);
+                }
+            }}>{_id}</p></TableCell>
             <TableCell>{title}</TableCell>
             <TableCell>{artist_id}</TableCell>
             <TableCell>{album_id}</TableCell>
@@ -14,7 +19,6 @@ export default function SongRow({song}) {
             <TableCell>{url}</TableCell>
             <TableCell>{tier}</TableCell>
             <TableCell>{genre}</TableCell>
-            <TableCell>{description}</TableCell>
         </TableRow>
     );
 }

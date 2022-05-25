@@ -1,8 +1,13 @@
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import SongRow from "./SongRow";
 import PropTypes from "prop-types";
+import {useState} from "@types/react";
+import SongDescriptionPopup from "../Popup/SongDescriptionPopup";
 
 export default function SongsTable({content}) {
+    const [popupOn, setPopupOn] = useState(false);
+    const [song2Describe, setSong2Describe] = useState(null);
+
     return (<div>
         <div>
             <TableContainer>
@@ -23,11 +28,14 @@ export default function SongsTable({content}) {
                         {content.map((song) => (<SongRow
                             key={song._id}
                             song={song}
+                            turnOnPopup={setPopupOn}
+                            setSongDescription={setSong2Describe}
                         />))}
                     </TableBody>
                 </Table>
             </TableContainer>
         </div>
+        <SongDescriptionPopup trigger={popupOn} setTrigger={setPopupOn} song={song2Describe}></SongDescriptionPopup>
     </div>);
 }
 
