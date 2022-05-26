@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export default function AlbumRow({album, turnOnPopup, setAlbum2Show}) {
     const {title, artistId, tier} = album;
-    //mostrar tracks como popup al clickear el title
+
     return (<TableRow>
             <TableCell><p onClick={() => {
                 setAlbum2Show(album);
@@ -18,6 +18,7 @@ AlbumRow.propTypes = {
     album: PropTypes.shape({
         title: PropTypes.string.isRequired,
         tracks: PropTypes.arrayOf(PropTypes.shape({
+            _id: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             artistId: PropTypes.string.isRequired,
             albumId: PropTypes.string.isRequired,

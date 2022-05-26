@@ -50,6 +50,7 @@ AlbumsTable.propTypes = {
     content: PropTypes.arrayOf(PropTypes.shape({
         title: PropTypes.string.isRequired,
         tracks: PropTypes.arrayOf(PropTypes.shape({
+            _id: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             artistId: PropTypes.string.isRequired,
             albumId: PropTypes.string.isRequired,
@@ -61,5 +62,5 @@ AlbumsTable.propTypes = {
         })),
         artistId: PropTypes.string.isRequired,
         tier: PropTypes.string.isRequired,
-    }).isRequired).isRequired,
+    }).isRequired),
 };
