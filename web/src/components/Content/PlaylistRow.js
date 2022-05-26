@@ -26,8 +26,8 @@ PlaylistRow.propTypes = {
             _id: PropTypes.string.isRequired,
         })),
         collaborative: PropTypes.bool.isRequired,
-        tracks: PropTypes.arrayOf(PropTypes.shape({
-            _id: PropTypes.string.isRequired,
+        trackIds: PropTypes.arrayOf(PropTypes.shape({
+            title: PropTypes.string.isRequired,
         })),
     }).isRequired,
 }
