@@ -5,10 +5,10 @@ export default function PlaylistRow({playlist, turnOnPopup, setPlaylist2Show}) {
     const {title, collaborative} = playlist;
 
     return (<TableRow>
-        <TableCell><p onClick={() => {
+        <TableCell><Chip label={title} variant="outlined" onClick={() => {
             setPlaylist2Show(playlist);
             turnOnPopup(true);
-        }}>{title}</p></TableCell>
+        }}>{title}</Chip></TableCell>
         <TableCell role={'status'}>
             <Chip
                 color={collaborative ? 'success' : 'error'}
