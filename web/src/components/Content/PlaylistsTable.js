@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import {playlistsData} from "../../utils/playlistData";
 import PlaylistRow from "./PlaylistRow";
+import PlaylistPopup from "../Popup/PlaylistPopup";
 
 export default function PlaylistsTable() {
     const [popupOn, setPopupOn] = useState(false);
@@ -39,6 +40,6 @@ export default function PlaylistsTable() {
                 </Table>
             </TableContainer>
         </div>
-        {/*<AlbumTracksPopup trigger={popupOn} setTrigger={setPopupOn} album={playlist2Show}></AlbumTracksPopup>*/}
+        <PlaylistPopup trigger={popupOn} setTrigger={setPopupOn} playlist={playlist2Show}></PlaylistPopup>
     </div>);
 }
