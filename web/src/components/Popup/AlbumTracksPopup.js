@@ -4,16 +4,20 @@ import AlbumRow from "../Content/AlbumRow";
 import TracksWrapper from "./TracksWrapper";
 
 export default function AlbumTracksPopup({trigger, setTrigger, album}) {
-    const {title, tracks} = album;
-    return (trigger) ? (<div className="popup">
-        <div className="popup-inner">
-            <h2>{title}</h2>
-            <h4>Tracks</h4>
-            <TracksWrapper tracks={tracks}/>
-            <button className="close-btn" onClick={() => setTrigger(false)}>Close
-            </button>
-        </div>
-    </div>) : "";
+    if (album){
+        const {title, tracks} = album;
+        return (trigger) ? (<div className="popup">
+            <div className="popup-inner">
+                <h2>{title}</h2>
+                <h4>Tracks</h4>
+                <TracksWrapper tracks={tracks}/>
+                <button className="close-btn" onClick={() => setTrigger(false)}>Close
+                </button>
+            </div>
+        </div>) : "";
+    } else {
+        return "";
+    }
 }
 
 AlbumRow.propTypes = {
