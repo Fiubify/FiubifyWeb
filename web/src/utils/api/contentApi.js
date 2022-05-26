@@ -1,4 +1,4 @@
-async function getContent(contentType) {
+async function getSongs() {
     const response = await fetch(
         `https://fiubify-middleware-staging.herokuapp.com/contents/songs/`,
         {
@@ -9,8 +9,21 @@ async function getContent(contentType) {
         }
     );
 
-    const data = await response.json();
-    return data;
+    return await response.json();
 }
 
-export {getContent};
+async function getAlbums() {
+    const response = await fetch(
+        `https://fiubify-middleware-staging.herokuapp.com/contents/albums/`,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    );
+
+    return await response.json();
+}
+
+export {getSongs, getAlbums};
