@@ -1,7 +1,5 @@
-import {useEffect, useState} from "react";
-import ContentTable from "./ContentTable";
-import {getSongs} from "../../utils/api/contentApi";
-import {Box, Button, Divider, Tab, Tabs, Toolbar} from "@mui/material";
+import {useState} from "react";
+import {Box, Button, Divider, Tab, Toolbar} from "@mui/material";
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
@@ -15,8 +13,6 @@ export const albums = 'albums';
 //const playlists = 'playlists';
 
 export default function ContentPage() {
-    //const [contents, setContents] = useState([]);
-    //const [contentType, setContentType] = useState(songs);
     const navigate = useNavigate();
 
     const [value, setValue] = useState('1');
@@ -24,15 +20,6 @@ export default function ContentPage() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-
-    /*async function fetchContent(contentType) {
-        const apiResponse = await getSongs(contentType);
-        setContents(apiResponse.data);
-    }
-
-    useEffect(() => {
-        fetchContent(contentType);
-    }, []);*/
 
     return (<div>
         <div>
@@ -45,20 +32,14 @@ export default function ContentPage() {
             <TabContext value={value}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                     <TabList onChange={handleChange} aria-label="lab API tabs example">
-                        {/*<Tab label="Songs" value="1" onClick={() => {
-                            setContentType(songs)
-                        }}/>
-                            <Tab label="Albums" value="2" onClick={() => {setContentType(albums)}}/>*/}
-                        {/*<Tab label="Item Three" value="3"/>*/}
                         <Tab label="Songs" value="1" />
                         <Tab label="Albums" value="2" />
                     </TabList>
                 </Box>
-                <TabPanel value="1"><SongsTable /></TabPanel>
-                <TabPanel value="2"><AlbumsTable /></TabPanel>
-                {/*<TabPanel value="3">Item Three</TabPanel>*/}
+                <TabPanel value="1"><SongsTable/></TabPanel>
+                <TabPanel value="2"><AlbumsTable/></TabPanel>
+                {/*<TabPanel value="3">Playlists</TabPanel>*/}
             </TabContext>
         </Box>
-        {/*<ContentTable content={contents} contentType={contentType}/>*/}
     </div>);
 }
