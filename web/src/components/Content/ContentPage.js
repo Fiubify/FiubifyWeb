@@ -7,6 +7,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import {useNavigate} from "react-router-dom";
 import SongsTable from "./SongsTable";
 import AlbumsTable from "./AlbumsTable";
+import PlaylistsTable from "./PlaylistsTable";
 
 export default function ContentPage() {
     const navigate = useNavigate();
@@ -29,11 +30,12 @@ export default function ContentPage() {
                     <TabList onChange={handleChange} aria-label="lab API tabs example">
                         <Tab label="Songs" value="1" />
                         <Tab label="Albums" value="2" />
+                        <Tab label="Playlists" value="3" />
                     </TabList>
                 </Box>
                 <TabPanel value="1"><SongsTable/></TabPanel>
                 <TabPanel value="2"><AlbumsTable/></TabPanel>
-                {/*<TabPanel value="3">Playlists</TabPanel>*/}
+                <TabPanel value="3"><PlaylistsTable/></TabPanel>
             </TabContext>
         </Box>
     </div>);
