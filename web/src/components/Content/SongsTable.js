@@ -1,12 +1,23 @@
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import SongRow from "./SongRow";
 import PropTypes from "prop-types";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import SongDescriptionPopup from "../Popup/SongDescriptionPopup";
+import {getSongs} from "../../utils/api/contentApi";
 
-export default function SongsTable({content}) {
+export default function SongsTable() {
     const [popupOn, setPopupOn] = useState(false);
     const [song2Describe, setSong2Describe] = useState(null);
+
+    const [content, setContent] = useState([]);
+    async function fetchContent() {
+        const apiResponse = await getSongs();
+        setContent(apiResponse.data);
+    }
+
+    useEffect(() => {
+        fetchContent();
+    }, []);
 
     return (<div>
         <div>
