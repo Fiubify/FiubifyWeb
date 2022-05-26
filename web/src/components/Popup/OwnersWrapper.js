@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 export default function OwnersWrapper({users}) {
     return (users) ? (
         <div>
-            {users.map((user) => (<h6>
+            {users.map((user) => (<p>
                 {user._id}
-            </h6>))}
+            </p>))}
         </div>
     ): ((<div>
         <h6>No owners available</h6>

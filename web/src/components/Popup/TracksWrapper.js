@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 export default function TracksWrapper({tracks}) {
     return (tracks) ? (
         <div>
-            {tracks.map((track) => (<h6>
+            {tracks.map((track) => (<p>
                 {track.title}
-            </h6>))}
+            </p>))}
         </div>
     ) : (<div>
-        <h6>No songs available</h6>
+        <p>No songs available</p>
     </div>);
 }
 
