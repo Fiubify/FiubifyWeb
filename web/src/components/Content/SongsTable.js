@@ -59,5 +59,5 @@ SongsTable.propTypes = {
         tier: PropTypes.string.isRequired,
         genre: PropTypes.string.isRequired,
         description: PropTypes.string,
-    }).isRequired).isRequired,
+    }).isRequired),
 };
