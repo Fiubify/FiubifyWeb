@@ -26,4 +26,18 @@ async function getAlbums() {
     return await response.json();
 }
 
-export {getSongs, getAlbums};
+async function getPlaylists() {
+    const response = await fetch(
+        `https://fiubify-middleware-staging.herokuapp.com/contents/playlists/`,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    );
+
+    return await response.json();
+}
+
+export {getSongs, getAlbums, getPlaylists};
