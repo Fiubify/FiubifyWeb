@@ -1,4 +1,4 @@
-import {TableCell, TableRow} from "@mui/material";
+import {Chip, TableCell, TableRow} from "@mui/material";
 import PropTypes from "prop-types";
 
 export default function SongRow({song, turnOnPopup, setSongDescription}) {
@@ -6,10 +6,10 @@ export default function SongRow({song, turnOnPopup, setSongDescription}) {
 
     return (
         <TableRow>
-            <TableCell><p onClick={() => {
+            <TableCell><Chip label={title} variant="outlined" onClick={() => {
                 setSongDescription(song);
                 turnOnPopup(true);
-            }}>{title}</p></TableCell>
+            }}>{title}</Chip></TableCell>
             <TableCell>{artistId}</TableCell>
             <TableCell>{albumId}</TableCell>
             <TableCell>{duration}</TableCell>
