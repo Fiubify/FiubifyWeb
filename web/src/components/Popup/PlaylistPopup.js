@@ -5,15 +5,14 @@ import OwnersWrapper from "./OwnersWrapper";
 export default function PlaylistPopup({trigger, setTrigger, playlist}) {
     if (playlist){
         const {title, ownerIds, trackIds, description} = playlist;
-        console.log(ownerIds);
         return (trigger) ? (<div className="popup">
             <div className="popup-inner">
                 <h2>{title}</h2>
                 <h4>Description</h4>
                 <p>{description}</p>
-                <h4>Owners</h4>
+                <h4>Owners Ids</h4>
                 <OwnersWrapper users={ownerIds}/>
-                <h4>Tracks</h4>
+                <h4>Tracks Ids</h4>
                 <TracksWrapper tracks={trackIds}/>
                 <button className="close-btn" onClick={() => setTrigger(false)}>Close
                 </button>
