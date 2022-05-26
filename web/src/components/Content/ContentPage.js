@@ -8,13 +8,8 @@ import {useNavigate} from "react-router-dom";
 import SongsTable from "./SongsTable";
 import AlbumsTable from "./AlbumsTable";
 
-export const songs = 'songs';
-export const albums = 'albums';
-//const playlists = 'playlists';
-
 export default function ContentPage() {
     const navigate = useNavigate();
-
     const [value, setValue] = useState('1');
 
     const handleChange = (event, newValue) => {
