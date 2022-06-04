@@ -21,13 +21,11 @@ export default function PlaylistRow({playlist, turnOnPopup, setPlaylist2Show}) {
 PlaylistRow.propTypes = {
     playlist: PropTypes.shape({
         title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        ownersIds: PropTypes.arrayOf(PropTypes.shape({
-            _id: PropTypes.string.isRequired,
+        description: PropTypes.string,
+        owners: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            id: PropTypes.string,
         })),
         collaborative: PropTypes.bool.isRequired,
-        trackIds: PropTypes.arrayOf(PropTypes.shape({
-            title: PropTypes.string.isRequired,
-        })),
     }).isRequired,
 }
