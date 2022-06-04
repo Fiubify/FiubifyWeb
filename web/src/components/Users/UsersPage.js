@@ -15,7 +15,7 @@ export default function UsersPage() {
     async function fetchUsers() {
         const apiResponse = await getUsers();
 
-        setUsers(apiResponse.data.users);
+        setUsers(apiResponse.data);
     }
 
     useEffect(() => {
