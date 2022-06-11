@@ -14,11 +14,16 @@ export default function TracksWrapper({playlist_id}) {
         fetchContent();
     }, []);
 
-    return(<div>
-        {content.tracks?.map((track) => (<p>
-            {track.title}
-        </p>))}
-    </div>)
+    if (content.tracks) {
+        return(<div>
+            {content.tracks.map((track) => (<p>
+                {track.title}
+            </p>))}
+        </div>)
+    } else {
+        return (<p>No tracks available</p>)
+    }
+
 }
 
 TracksWrapper.propTypes = {
