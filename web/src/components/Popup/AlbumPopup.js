@@ -1,16 +1,16 @@
 import './AlbumTracksPopup.css'
 import PropTypes from "prop-types";
 import AlbumRow from "../Content/AlbumRow";
-import TracksWrapper from "./TracksWrapper";
+import AlbumTracks from "./AlbumTracks";
 
-export default function AlbumTracksPopup({trigger, setTrigger, album}) {
+export default function AlbumPopup({trigger, setTrigger, album}) {
     if (album){
         const {title, tracks} = album;
         return (trigger) ? (<div className="popup">
             <div className="popup-inner">
                 <h2>{title}</h2>
                 <h4>Tracks</h4>
-                <TracksWrapper tracks={tracks}/>
+                <AlbumTracks tracks={tracks}/>
                 <button className="close-btn" onClick={() => setTrigger(false)}>Close
                 </button>
             </div>
