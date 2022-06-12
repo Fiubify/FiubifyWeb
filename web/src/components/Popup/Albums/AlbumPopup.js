@@ -1,6 +1,6 @@
 import './AlbumTracksPopup.css'
 import PropTypes from "prop-types";
-import AlbumRow from "../Content/AlbumRow";
+import AlbumRow from "../../Content/AlbumRow";
 import AlbumTracks from "./AlbumTracks";
 
 export default function AlbumPopup({trigger, setTrigger, album}) {

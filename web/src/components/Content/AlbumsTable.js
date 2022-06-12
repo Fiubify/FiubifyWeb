@@ -2,7 +2,7 @@ import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "
 import PropTypes from "prop-types";
 import AlbumRow from "./AlbumRow";
 import {useState, useEffect} from "react";
-import AlbumPopup from "../Popup/AlbumPopup";
+import AlbumPopup from "../Popup/Albums/AlbumPopup";
 import {getAlbums} from "../../utils/api/contentApi";
 
 export default function AlbumsTable() {

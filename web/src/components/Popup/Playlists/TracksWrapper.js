@@ -1,12 +1,11 @@
 import PropTypes from "prop-types";
 import {useEffect, useState} from "react";
-import {getTracksFromPlaylist} from "../../utils/api/contentApi";
+import {getTracksFromPlaylist} from "../../../utils/api/contentApi";
 
 export default function TracksWrapper({playlist_id}) {
     const [content, setContent] = useState([]);
     async function fetchContent() {
         const apiResponse = await getTracksFromPlaylist(playlist_id);
-        console.log(apiResponse.data);
         setContent(apiResponse.data);
     }
 
