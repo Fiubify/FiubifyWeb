@@ -4,7 +4,7 @@ export default function OwnersWrapper({users}) {
     return (users) ? (
         <div>
             {users.map((user) => (<p>
-                {user._id}
+                {user.name} ({user.id})
             </p>))}
         </div>
     ): ((<div>
@@ -14,10 +14,7 @@ export default function OwnersWrapper({users}) {
 
 OwnersWrapper.propTypes = {
     users: PropTypes.arrayOf(PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        uid: PropTypes.string.isRequired,
-        email: PropTypes.string.isRequired,
-        role: PropTypes.string.isRequired,
-        disabled: PropTypes.bool.isRequired,
+        name: PropTypes.string.isRequired,
+        id: PropTypes.string,
     })),
 };

@@ -2,7 +2,7 @@ import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "
 import PropTypes from "prop-types";
 import AlbumRow from "./AlbumRow";
 import {useState, useEffect} from "react";
-import AlbumTracksPopup from "../Popup/AlbumTracksPopup";
+import AlbumPopup from "../Popup/Albums/AlbumPopup";
 import {getAlbums} from "../../utils/api/contentApi";
 
 export default function AlbumsTable() {
@@ -42,7 +42,7 @@ export default function AlbumsTable() {
                 </Table>
             </TableContainer>
         </div>
-        <AlbumTracksPopup trigger={popupOn} setTrigger={setPopupOn} album={album2Show}></AlbumTracksPopup>
+        <AlbumPopup trigger={popupOn} setTrigger={setPopupOn} album={album2Show}></AlbumPopup>
     </div>);
 }
 

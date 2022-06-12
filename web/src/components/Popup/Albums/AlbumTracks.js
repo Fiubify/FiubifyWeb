@@ -1,18 +1,14 @@
 import PropTypes from "prop-types";
 
-export default function TracksWrapper({tracks}) {
-    return (tracks) ? (
-        <div>
-            {tracks.map((track) => (<p>
-                {track.title}
-            </p>))}
-        </div>
-    ) : (<div>
-        <p>No songs available</p>
-    </div>);
+export default function AlbumTracks({tracks}) {
+    return(<div>
+        {tracks?.map((track) => (<p>
+            {track.title}
+        </p>))}
+    </div>)
 }
 
-TracksWrapper.propTypes = {
+AlbumTracks.propTypes = {
     tracks: PropTypes.arrayOf(PropTypes.shape({
         _id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
@@ -24,4 +20,4 @@ TracksWrapper.propTypes = {
         genre: PropTypes.string.isRequired,
         description: PropTypes.string,
     })),
-};
+}

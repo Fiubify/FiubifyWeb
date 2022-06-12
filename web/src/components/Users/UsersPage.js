@@ -7,14 +7,14 @@ import {Button, Divider, Toolbar} from "@mui/material";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import {useNavigate} from "react-router-dom";
 
-export default async function UsersPage({token}) {
+export default function UsersPage() {
     const [users, setUsers] = useState([]);
     const [apiActions, setApiAction] = useState([]);
     const navigate = useNavigate();
 
     async function fetchUsers() {
         const apiResponse = await getUsers();
-        setUsers(apiResponse.data.users);
+        setUsers(apiResponse.data);
     }
 
     useEffect(() => {
@@ -22,7 +22,7 @@ export default async function UsersPage({token}) {
     }, []);
 
     const handleBlockUser = async (id) => {
-        const response = await blockUser(id, token);
+        const response = await blockUser(id);
 
         if (response.ok) {
             setUsers(
@@ -41,7 +41,7 @@ export default async function UsersPage({token}) {
     };
 
     const handleUnblockUser = async (id) => {
-        const response = await unblockUser(id, token);
+        const response = await unblockUser(id);
 
         if (response.ok) {
             setUsers(
