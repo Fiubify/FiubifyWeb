@@ -14,7 +14,7 @@ export default function TracksWrapper({playlist_id}) {
         fetchContent();
     }, []);
 
-    if (content.tracks) {
+    if (content.tracks && content.tracks.length > 0) {
         return(<div>
             {content.tracks.map((track) => (<p>
                 {track.title}
