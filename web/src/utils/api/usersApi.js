@@ -5,7 +5,7 @@ async function getUsers() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-      },
+      }
     }
   );
 
@@ -13,7 +13,7 @@ async function getUsers() {
   return fetchResponse;
 }
 
-async function blockUser(id) {
+async function blockUser(id, token) {
   const response = await fetch(
     `https://fiubify-middleware-staging.herokuapp.com/user/block/${id}`,
     {
@@ -21,13 +21,16 @@ async function blockUser(id) {
       headers: {
         'Content-Type': 'application/json',
       },
+        body: JSON.stringify({
+            token: token,
+        })
     }
   );
 
   return response;
 }
 
-async function unblockUser(id) {
+async function unblockUser(id, token) {
   const response = await fetch(
     `https://fiubify-middleware-staging.herokuapp.com/user/unblock/${id}`,
     {
@@ -35,6 +38,9 @@ async function unblockUser(id) {
       headers: {
         'Content-Type': 'application/json',
       },
+        body: JSON.stringify({
+            token: token,
+        })
     }
   );
   return response;
