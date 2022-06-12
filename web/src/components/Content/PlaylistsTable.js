@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import PlaylistRow from "./PlaylistRow";
-import PlaylistPopup from "../Popup/PlaylistPopup";
+import PlaylistPopup from "../Popup/Playlists/PlaylistPopup";
 import {getPlaylists} from "../../utils/api/contentApi";
 import PropTypes from "prop-types";
 

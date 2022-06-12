@@ -2,7 +2,7 @@ import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "
 import SongRow from "./SongRow";
 import PropTypes from "prop-types";
 import {useState, useEffect} from "react";
-import SongDescriptionPopup from "../Popup/SongDescriptionPopup";
+import SongDescriptionPopup from "../Popup/Songs/SongDescriptionPopup";
 import {getSongs} from "../../utils/api/contentApi";
 
 export default function SongsTable() {
