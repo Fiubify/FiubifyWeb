@@ -25,6 +25,6 @@ describe('UsersPage status', () => {
         </BrowserRouter>
     );
 
-        expect(await screen.findAllByText('Artist')).toHaveLength(2);
+        expect(await screen.getByText('Role')).toBeInTheDocument();
     });
 });
