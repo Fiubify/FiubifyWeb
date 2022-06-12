@@ -5,6 +5,7 @@ import UsersPage from './components/Users/UsersPage';
 import {useState} from "react";
 import LoggedInChecker from "./components/Login/LoggedInChecker";
 import HomeNavBar from "./components/NavBars/HomeNavBar";
+import ContentPage from "./components/Content/ContentPage";
 
 function App() {
     const [token, setToken] = useState('');
@@ -16,6 +17,7 @@ function App() {
                     <Route exact path="/" element={<Login setToken={setToken}/>} />
                     <Route exact path="/dashboard" element={<LoggedInChecker component={<HomeNavBar setToken={setToken}/>} token={token}/>}/>
                     <Route exact path="/users" element={<LoggedInChecker component={<UsersPage/>} token={token}/>}/>
+                    <Route exact path="/contents" element={<LoggedInChecker component={<ContentPage/>} token={token}/>}/>
                 </Routes>
             </Router>
         </div>

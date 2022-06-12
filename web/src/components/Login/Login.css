@@ -4,26 +4,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #CAE3EA;
 }
 .login__container {
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: #dcdcdc;
     padding: 30px;
 }
 .login__textBox {
     padding: 10px;
     font-size: 18px;
     margin-bottom: 10px;
+    width: 90%;
+    border-radius: 20px;
+    border: none;
+    color: #006E95;
 }
 .login__btn {
     padding: 10px;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 10px;
     border: none;
     color: white;
-    background-color: black;
+    background-color: #006E95;
+    width: 100%;
+    border-radius: 20px;
+    line-height: 21px;
+    font-weight: bold;
 }
 .login__google {
     background-color: #4285f4;
