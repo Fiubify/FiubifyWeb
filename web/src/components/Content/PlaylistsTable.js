@@ -12,7 +12,6 @@ export default function PlaylistsTable() {
     const [content, setContent] = useState([]);
     async function fetchContent() {
         const apiResponse = await getPlaylists();
-        console.log(apiResponse.data);
         setContent(apiResponse.data);
     }
 
