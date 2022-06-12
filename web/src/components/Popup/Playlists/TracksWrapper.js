@@ -1,5 +1,6 @@
-import PropTypes from "prop-types";
 import {useEffect, useState} from "react";
+
+import PropTypes from "prop-types";
 import {getTracksFromPlaylist} from "../../../utils/api/contentApi";
 
 export default function TracksWrapper({playlist_id}) {
@@ -10,7 +11,8 @@ export default function TracksWrapper({playlist_id}) {
     }
 
     useEffect(() => {
-        fetchContent().then();
+        fetchContent();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (content.tracks && content.tracks.length > 0) {
