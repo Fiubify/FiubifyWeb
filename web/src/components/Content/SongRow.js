@@ -9,7 +9,7 @@ export default function SongRow({song, turnOnPopup, setSongDescription}) {
             <TableCell><Chip label={title} variant="outlined" onClick={() => {
                 setSongDescription(song);
                 turnOnPopup(true);
-            }}>{title}</Chip></TableCell>
+            }}></Chip></TableCell>
             <TableCell>{artistId}</TableCell>
             <TableCell>{albumId}</TableCell>
             <TableCell>{duration}</TableCell>
