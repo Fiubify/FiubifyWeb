@@ -7,7 +7,7 @@ import LoggedInChecker from "./components/Login/LoggedInChecker";
 import HomeNavBar from "./components/NavBars/HomeNavBar";
 import ContentPage from "./components/Content/ContentPage";
 
-function App() {
+export default function App() {
     const [token, setToken] = useState('');
 
     return (
@@ -23,4 +23,3 @@ function App() {
         </div>
     );
 }
-export default App;
