@@ -10,7 +10,7 @@ export default function TracksWrapper({playlist_id}) {
     }
 
     useEffect(() => {
-        fetchContent();
+        fetchContent().then();
     }, []);
 
     if (content.tracks && content.tracks.length > 0) {
