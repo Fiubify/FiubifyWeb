@@ -8,7 +8,7 @@ export default function AlbumRow({album, turnOnPopup, setAlbum2Show}) {
         <TableCell><Chip label={title} variant="outlined" onClick={() => {
             setAlbum2Show(album);
             turnOnPopup(true);
-        }}></Chip></TableCell>
+        }}/></TableCell>
         <TableCell>{artistId}</TableCell>
         <TableCell>{tier}</TableCell>
         <TableCell>{genre}</TableCell>

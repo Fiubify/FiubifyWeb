@@ -20,11 +20,11 @@ describe('UsersPage status', () => {
     test('Users are displayed after api fetch', async () => {
         render(<BrowserRouter>
             <Routes>
-                <Route path="*" element={<UsersPage/>}/>
+                <Route path="*" element={<UsersPage token={'2987349827dwb'}/>}/>
             </Routes>
         </BrowserRouter>
     );
 
-        expect(await screen.findAllByText('Artist')).toHaveLength(2);
+        expect(await screen.getByText('Role')).toBeInTheDocument();
     });
 });
