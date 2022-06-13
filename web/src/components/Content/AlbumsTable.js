@@ -28,11 +28,12 @@ export default function AlbumsTable() {
                             <TableCell>Title</TableCell>
                             <TableCell>Artist_ID</TableCell>
                             <TableCell>Tier</TableCell>
+                            <TableCell>Genre</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {content.map((album) => (<AlbumRow
-                            //key={album._id}
+                            //TODO el back tendria que devolver el _id para poder tomarlo como key
                             key={album.title}
                             album={album}
                             turnOnPopup={setPopupOn}
@@ -62,5 +63,6 @@ AlbumsTable.propTypes = {
         })),
         artistId: PropTypes.string.isRequired,
         tier: PropTypes.string.isRequired,
+        genre: PropTypes.string.isRequired,
     }).isRequired),
 };
