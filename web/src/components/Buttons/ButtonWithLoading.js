@@ -1,5 +1,5 @@
-import { Button, CircularProgress } from '@mui/material';
-import { useState } from 'react';
+import { Button, CircularProgress } from "@mui/material";
+import { useState } from "react";
 
 export default function ButtonWithLoading({
   variant,
