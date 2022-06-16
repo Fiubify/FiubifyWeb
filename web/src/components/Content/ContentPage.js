@@ -52,6 +52,7 @@ export default function ContentPage() {
           >
             <TabList
               sx={{
+                width: "75%",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -60,29 +61,44 @@ export default function ContentPage() {
               aria-label="lab API tabs example"
             >
               <Tab
-                sx={{ width: "33%", color: "#006e95", fontWeight: "bold" }}
+                sx={{
+                  width: "33%",
+                  color: "#006e95",
+                  fontWeight: "bold",
+                  ":hover": { backgroundColor: "#006e95", color: "white" },
+                }}
                 label="Songs"
                 value="1"
               />
               <Tab
-                sx={{ width: "33%", color: "#006e95", fontWeight: "bold" }}
+                sx={{
+                  width: "33%",
+                  color: "#006e95",
+                  fontWeight: "bold",
+                  ":hover": { backgroundColor: "#006e95", color: "white" },
+                }}
                 label="Albums"
                 value="2"
               />
               <Tab
-                sx={{ width: "33%", color: "#006e95", fontWeight: "bold" }}
+                sx={{
+                  width: "33%",
+                  color: "#006e95",
+                  fontWeight: "bold",
+                  ":hover": { backgroundColor: "#006e95", color: "white" },
+                }}
                 label="Playlists"
                 value="3"
               />
             </TabList>
           </Box>
-          <TabPanel value="1">
+          <TabPanel sx={{ padding: 0 }} value="1">
             <SongsTable />
           </TabPanel>
-          <TabPanel value="2">
+          <TabPanel sx={{ padding: 0 }} value="2">
             <AlbumsTable />
           </TabPanel>
-          <TabPanel value="3">
+          <TabPanel sx={{ padding: 0 }} value="3">
             <PlaylistsTable />
           </TabPanel>
         </TabContext>

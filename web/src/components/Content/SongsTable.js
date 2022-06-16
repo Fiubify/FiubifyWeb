@@ -1,63 +1,80 @@
-import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 import SongRow from "./SongRow";
 import PropTypes from "prop-types";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import SongDescriptionPopup from "../Popup/Songs/SongDescriptionPopup";
-import {getSongs} from "../../utils/api/contentApi";
+import { getSongs } from "../../utils/api/contentApi";
 
 export default function SongsTable() {
-    const [popupOn, setPopupOn] = useState(false);
-    const [song2Describe, setSong2Describe] = useState(null);
+  const [popupOn, setPopupOn] = useState(false);
+  const [song2Describe, setSong2Describe] = useState(null);
 
-    const [content, setContent] = useState([]);
-    async function fetchContent() {
-        const apiResponse = await getSongs();
-        setContent(apiResponse.data);
-    }
+  const [content, setContent] = useState([]);
+  async function fetchContent() {
+    const apiResponse = await getSongs();
+    setContent(apiResponse.data);
+  }
 
-    useEffect(() => {
-        fetchContent();
-    }, []);
+  useEffect(() => {
+    fetchContent();
+  }, []);
 
-    return (<div>
-        <div>
-            <TableContainer>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Title</TableCell>
-                            <TableCell>Artist_ID</TableCell>
-                            <TableCell>Album_ID</TableCell>
-                            <TableCell>Duration</TableCell>
-                            <TableCell>URL</TableCell>
-                            <TableCell>Tier</TableCell>
-                            <TableCell>Genre</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {content.map((song) => (<SongRow
-                            key={song.url}
-                            song={song}
-                            turnOnPopup={setPopupOn}
-                            setSongDescription={setSong2Describe}
-                        />))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </div>
-        <SongDescriptionPopup trigger={popupOn} setTrigger={setPopupOn} song={song2Describe}></SongDescriptionPopup>
-    </div>);
+  return (
+    <div style={{ width: "100%" }}>
+      <div style={{ width: "100%" }}>
+        <TableContainer sx={{ width: "100%" }}>
+          <Table>
+            <TableHead sx={{ backgroundColor: "#006e95" }}>
+              <TableRow>
+                <TableCell sx={{ color: "white" }}>Title</TableCell>
+                <TableCell sx={{ color: "white" }}>Artist_ID</TableCell>
+                <TableCell sx={{ color: "white" }}>Album_ID</TableCell>
+                <TableCell sx={{ color: "white" }}>Duration</TableCell>
+                <TableCell sx={{ color: "white" }}>URL</TableCell>
+                <TableCell sx={{ color: "white" }}>Tier</TableCell>
+                <TableCell sx={{ color: "white" }}>Genre</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {content.map((song) => (
+                <SongRow
+                  key={song.url}
+                  song={song}
+                  turnOnPopup={setPopupOn}
+                  setSongDescription={setSong2Describe}
+                />
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
+      <SongDescriptionPopup
+        trigger={popupOn}
+        setTrigger={setPopupOn}
+        song={song2Describe}
+      ></SongDescriptionPopup>
+    </div>
+  );
 }
 
 SongsTable.propTypes = {
-    content: PropTypes.arrayOf(PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        artistId: PropTypes.string.isRequired,
-        albumId: PropTypes.string.isRequired,
-        duration: PropTypes.number.isRequired,
-        url: PropTypes.string.isRequired,
-        tier: PropTypes.string.isRequired,
-        genre: PropTypes.string.isRequired,
-        description: PropTypes.string,
-    }).isRequired),
+  content: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      artistId: PropTypes.string.isRequired,
+      albumId: PropTypes.string.isRequired,
+      duration: PropTypes.number.isRequired,
+      url: PropTypes.string.isRequired,
+      tier: PropTypes.string.isRequired,
+      genre: PropTypes.string.isRequired,
+      description: PropTypes.string,
+    }).isRequired
+  ),
 };
