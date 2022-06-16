@@ -28,6 +28,7 @@ export default function UsersTable({
               sx={{ backgroundColor: "#006e95", borderTop: "1px solid white" }}
             >
               <TableRow>
+                <TableCell sx={{ color: "white" }}>View more</TableCell>
                 <TableCell sx={{ color: "white" }}>Id</TableCell>
                 <TableCell sx={{ color: "white" }}>Uid</TableCell>
                 <TableCell sx={{ color: "white" }}>Email</TableCell>

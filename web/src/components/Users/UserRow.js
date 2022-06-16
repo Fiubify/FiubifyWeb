@@ -1,5 +1,6 @@
-import { TableCell, TableRow, Chip } from "@mui/material";
+import { TableCell, TableRow, Chip, Button } from "@mui/material";
 import ButtonWithLoading from "../Buttons/ButtonWithLoading";
+import { BiWindowOpen } from "react-icons/bi";
 
 import PropTypes from "prop-types";
 
@@ -16,15 +17,19 @@ export default function UserRow({
 
   return (
     <TableRow>
-      <TableCell sx={{ borderBottom: "2px solid #006e95" }} color="info">
-        <p
+      <TableCell sx={{ borderBottom: "2px solid #006e95" }}>
+        <Button
           onClick={() => {
             turnOnPopup(true);
             setUserProfile(user);
           }}
+          sx={{ color: "black" }}
         >
-          {_id}
-        </p>
+          <BiWindowOpen />
+        </Button>
+      </TableCell>
+      <TableCell sx={{ borderBottom: "2px solid #006e95" }} color="info">
+        {_id}
       </TableCell>
       <TableCell sx={{ borderBottom: "2px solid #006e95" }}>{uid}</TableCell>
       <TableCell sx={{ borderBottom: "2px solid #006e95" }}>{email}</TableCell>
