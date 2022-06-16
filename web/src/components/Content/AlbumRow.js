@@ -1,4 +1,4 @@
-import { Button, Chip, TableCell, TableRow } from "@mui/material";
+import { Button, TableCell, TableRow } from "@mui/material";
 import PropTypes from "prop-types";
 import { BiWindowOpen } from "react-icons/bi";
 
