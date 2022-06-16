@@ -33,6 +33,7 @@ export default function PlaylistsTable() {
           <Table>
             <TableHead sx={{ backgroundColor: "#006e95" }}>
               <TableRow>
+                <TableCell sx={{ color: "white" }}>View more</TableCell>
                 <TableCell sx={{ color: "white" }}>Title</TableCell>
                 <TableCell sx={{ color: "white" }}>Collaborative</TableCell>
               </TableRow>

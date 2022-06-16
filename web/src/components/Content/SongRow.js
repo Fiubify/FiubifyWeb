@@ -1,5 +1,6 @@
-import { Chip, TableCell, TableRow } from "@mui/material";
+import { Button, Chip, TableCell, TableRow } from "@mui/material";
 import PropTypes from "prop-types";
+import { BiWindowOpen } from "react-icons/bi";
 
 export default function SongRow({ song, turnOnPopup, setSongDescription }) {
   const { title, artistId, albumId, duration, url, tier, genre } = song;
@@ -7,15 +8,17 @@ export default function SongRow({ song, turnOnPopup, setSongDescription }) {
   return (
     <TableRow>
       <TableCell sx={{ borderBottom: "2px solid #006e95" }}>
-        <Chip
-          label={title}
-          variant="outlined"
+        <Button
           onClick={() => {
             setSongDescription(song);
             turnOnPopup(true);
           }}
-        ></Chip>
+          sx={{ color: "black" }}
+        >
+          <BiWindowOpen />
+        </Button>
       </TableCell>
+      <TableCell sx={{ borderBottom: "2px solid #006e95" }}>{title}</TableCell>
       <TableCell sx={{ borderBottom: "2px solid #006e95" }}>
         {artistId}
       </TableCell>

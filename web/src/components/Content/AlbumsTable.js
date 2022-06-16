@@ -33,6 +33,7 @@ export default function AlbumsTable() {
           <Table>
             <TableHead sx={{ backgroundColor: "#006e95" }}>
               <TableRow>
+                <TableCell sx={{ color: "white" }}>View more</TableCell>
                 <TableCell sx={{ color: "white" }}>Title</TableCell>
                 <TableCell sx={{ color: "white" }}>Artist_ID</TableCell>
                 <TableCell sx={{ color: "white" }}>Tier</TableCell>

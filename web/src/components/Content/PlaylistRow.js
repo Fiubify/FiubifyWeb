@@ -1,5 +1,6 @@
-import { Chip, TableCell, TableRow } from "@mui/material";
+import { Button, Chip, TableCell, TableRow } from "@mui/material";
 import PropTypes from "prop-types";
+import { BiWindowOpen } from "react-icons/bi";
 
 export default function PlaylistRow({
   playlist,
@@ -10,16 +11,18 @@ export default function PlaylistRow({
 
   return (
     <TableRow>
-      <TableCell sx={{ borderBottom: "2px solid #006e95" }}>
-        <Chip
-          label={title}
-          variant="outlined"
+      <TableCell sx={{ borderBottom: "2px solid #006e95", width: "10%" }}>
+        <Button
           onClick={() => {
             setPlaylist2Show(playlist);
             turnOnPopup(true);
           }}
-        />
+          sx={{ color: "black" }}
+        >
+          <BiWindowOpen />
+        </Button>
       </TableCell>
+      <TableCell sx={{ borderBottom: "2px solid #006e95" }}>{title}</TableCell>
       <TableCell sx={{ borderBottom: "2px solid #006e95" }} role={"status"}>
         <Chip
           color={collaborative ? "success" : "error"}
