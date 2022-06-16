@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import UsersTable from "./UsersTable";
 import StatusBar from "../StatusBar/StatusBar";
 import { blockUser, unblockUser, getUsers } from "../../utils/api/usersApi";
-import { Button, Divider, Toolbar } from "@mui/material";
+import { Button, Toolbar } from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useNavigate } from "react-router-dom";
 
