@@ -6,7 +6,6 @@ export async function getAllContentMetrics(){
         let response = await axios.get(
             contentMetricsUrl
         );
-        console.log("content metrics: ", response.data)
         return response.data;
     } catch (e) {
         throw e;
