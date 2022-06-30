@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
-import {getAllContentMetrics} from "../../utils/api/metricsApi";
-import {VictoryAxis, VictoryBar, VictoryChart, VictoryTheme} from "victory";
+import {filterContentByAction, getAllContentMetrics} from "../../utils/api/metricsApi";
 import {ContentLastWeek} from "./ContentLastWeek";
+import {SongsListenedByDayChar} from "./Content/SongsListenedByDayChar"
+import {listenedContentAction} from "../../utils/constantes";
 
 function getCurrentDate(separator='-'){
 
@@ -20,16 +21,11 @@ export function ContentMetricsGraphs() {
         getAllContentMetrics().then((contents) => setContent(contents.data));
     }, []);
 
-    const data = [
-        {quarter: 1, earnings: 13000},
-        {quarter: 2, earnings: 16500},
-        {quarter: 3, earnings: 14250},
-        {quarter: 4, earnings: 19000}
-    ];
 
     if (content.length > 0) {
         return (<div>
             <ContentLastWeek content={content}/>
+            <SongsListenedByDayChar content={filterContentByAction(content, listenedContentAction)}/>
             {/*<VictoryChart
                 // adding the material theme provided with Victory
                 theme={VictoryTheme.material}
