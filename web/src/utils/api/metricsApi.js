@@ -1,4 +1,4 @@
-import {contentMetricsUrl, userMetricsUrl} from "../constantes";
+import {contentMetricsUrl, freeTier, userMetricsUrl} from "../constantes";
 import axios from "axios";
 
 export async function getAllContentMetrics(){
@@ -35,3 +35,24 @@ export function getMetricsQtyForDate(date, content) {
     return qty.valueOf();
 }
 
+export function filterContentByAction(content, action) {
+    let contentFiltered = [];
+
+    content.forEach((contentMetric) => {
+        if (contentMetric.action === action)
+            contentFiltered.push(contentMetric);
+    })
+
+    return contentFiltered;
+}
+
+export function filterContentByTier(content, isFree) {
+    let contentFiltered = [];
+
+    content.forEach((contentMetric) => {
+        if (((contentMetric.tier === freeTier) && isFree) || ((contentMetric.tier !== freeTier) && !isFree))
+            contentFiltered.push(contentMetric);
+    })
+
+    return contentFiltered;
+}
