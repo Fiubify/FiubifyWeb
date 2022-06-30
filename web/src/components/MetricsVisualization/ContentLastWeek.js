@@ -1,28 +1,9 @@
 import PropTypes from "prop-types";
 import {VictoryLabel, VictoryBar, VictoryChart, VictoryPortal, VictoryStack, VictoryTheme} from "victory";
 import {creationContentAction, listenedContentAction } from "../../utils/constantes";
+import {filterContentByAction, getMetricsQtyForDate} from "../../utils/api/metricsApi";
 
-function getMetricsQtyForDate(date, content) {
-    let qty = 0;
-    content.forEach((contentMetric) => {
-        if (new Date(Date.parse(contentMetric.createdAt)).toDateString() === (new Date(Date.parse(date)).toDateString())) {
-            qty += 1;
-        }
-    })
-    //console.log("Date: ", new Date(Date.parse(date)).toDateString(), " --> qty: ", qty);
-    return qty.valueOf();
-}
-
-function filterContentByAction(content, action) {
-    let contentFiltered = [];
-
-    content.forEach((contentMetric) => {
-        if (contentMetric.action === action)
-            contentFiltered.push(contentMetric);
-    })
-
-    return contentFiltered;
-}
+//TODO: agregar labels a las columnas
 
 export function ContentLastWeek({content}) {
     if (content.length > 0) {
@@ -88,13 +69,6 @@ export function ContentLastWeek({content}) {
                             data: {width: 30},
                             labels: {padding: -20}
                         }}
-                        labelComponent={
-                            <VictoryPortal>
-                                {/*
-                        <VictoryLabel />
-*/}
-                            </VictoryPortal>
-                        }
                     >
                         <VictoryBar
                             data={data}
