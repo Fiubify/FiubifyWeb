@@ -1,5 +1,6 @@
 import {filterContentByTier, getMetricsQtyForDate} from "../../../utils/api/metricsApi";
 import {VictoryBar, VictoryChart, VictoryStack, VictoryTheme} from "victory";
+import PropTypes from "prop-types";
 
 export function SongsListenedByDayChar({content}) {
     if (content.length > 0) {
@@ -48,7 +49,6 @@ export function SongsListenedByDayChar({content}) {
 
         return (
             <div>
-                <h2>Listened songs by action</h2>
                 <h4>Amarillo --> Free</h4>
                 <h4>Naranja --> Premium</h4>
                 <VictoryChart
@@ -87,5 +87,21 @@ export function SongsListenedByDayChar({content}) {
                 </VictoryChart>
             </div>)
     }
-    return ""
+    return (<h4>No content available</h4>)
 }
+
+SongsListenedByDayChar.propTypes = {
+    content: PropTypes.arrayOf(
+        PropTypes.shape({
+            action: PropTypes.string.isRequired,
+            albumId: PropTypes.string.isRequired,
+            albumName: PropTypes.string.isRequired,
+            createdAt: PropTypes.instanceOf(Date).isRequired,
+            genre: PropTypes.string.isRequired,
+            songId: PropTypes.string.isRequired,
+            songName: PropTypes.string.isRequired,
+            tier: PropTypes.string.isRequired,
+            userUId: PropTypes.string.isRequired,
+        }).isRequired
+    ).isRequired
+};
