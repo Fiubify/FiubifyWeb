@@ -11,7 +11,7 @@ import {signOut} from "firebase/auth";
 import {auth} from "../../firebase";
 import Logo from "./../../assets/logo.png";
 import {TbLogout} from "react-icons/tb";
-import {ContentMetricsGraphs} from "../MetricsVisualization/ContentMetricsGraphs";
+import {ContentMetricsGraphs} from "../MetricsVisualization/Content/ContentMetricsGraphs";
 
 function HomeNavBar({setToken}) {
     const navigate = useNavigate();

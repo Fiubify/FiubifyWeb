@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
-import {filterContentByAction, getAllContentMetrics} from "../../utils/api/metricsApi";
+import {filterContentByAction, getAllContentMetrics} from "../../../utils/api/metricsApi";
 import {ContentLastWeek} from "./ContentLastWeek";
-import {SongsListenedByDayChar} from "./Content/SongsListenedByDayChar"
-import {creationContentAction, listenedContentAction} from "../../utils/constantes";
+import {SongsListenedByDayChar} from "./SongsListenedByDayChar"
+import {creationContentAction, listenedContentAction} from "../../../utils/constantes";
 
 function getCurrentDate(separator='-'){
 

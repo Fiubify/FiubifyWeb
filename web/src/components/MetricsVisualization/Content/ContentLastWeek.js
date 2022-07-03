@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import {VictoryLabel, VictoryBar, VictoryChart, VictoryPortal, VictoryStack, VictoryTheme} from "victory";
-import {creationContentAction, listenedContentAction } from "../../utils/constantes";
-import {filterContentByAction, getMetricsQtyForDate} from "../../utils/api/metricsApi";
+import { VictoryBar, VictoryChart, VictoryStack, VictoryTheme} from "victory";
+import {creationContentAction, listenedContentAction } from "../../../utils/constantes";
+import {filterContentByAction, getMetricsQtyForDate} from "../../../utils/api/metricsApi";
 
 //TODO: agregar labels a las columnas
 
