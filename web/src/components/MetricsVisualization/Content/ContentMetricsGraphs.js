@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 import {filterMetricsByAction, getAllContentMetrics} from "../../../utils/api/metricsApi";
-import {ContentLastWeek} from "./ContentLastWeek";
 import {SongsListenedByDayChar} from "./SongsListenedByDayChar"
 import {creationContentAction, listenedContentAction} from "../../../utils/constantes";
+import {SongsTierPieChart} from "./SongsTierPieChart";
 
 function getCurrentDate(separator='-'){
 
@@ -24,11 +24,12 @@ export function ContentMetricsGraphs() {
 
     if (content.length > 0) {
         return (<div>
-            <ContentLastWeek content={content}/>
-            <h2>Listened songs by action</h2>
+            <h2>Last week listened songs by tier</h2>
             <SongsListenedByDayChar content={filterMetricsByAction(content, listenedContentAction)}/>
-            <h2>Created songs by action</h2>
+            <h2>Last week uploaded songs by tier</h2>
             <SongsListenedByDayChar content={filterMetricsByAction(content, creationContentAction)}/>
+            <h2>Songs Proportion by Plan</h2>
+            <SongsTierPieChart/>
             {/*<VictoryChart
                 // adding the material theme provided with Victory
                 theme={VictoryTheme.material}
