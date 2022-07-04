@@ -20,9 +20,7 @@ export function UsersPieChart() {
             {x: "Free-Users", y: freeUsers.length},
             {x: "Premium-Users", y: (users.length-freeUsers.length)},
         ]
-        return (<div>
-            <h4>Amarillo --> Email</h4>
-            <h4>Naranja --> Federated</h4>
+        return (
             <VictoryPie
                 colorScale={["tomato", "orange"]}
                 data={data}
@@ -31,7 +29,7 @@ export function UsersPieChart() {
                 }}
                 height={200}
             />
-        </div>)
+        )
     }
     return "";
 }
