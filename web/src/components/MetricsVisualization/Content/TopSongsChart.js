@@ -1,13 +1,13 @@
 import {useEffect, useState} from "react";
-import {getTopSongsListened} from "../../../utils/api/metricsApi";
+import {getTopListenedFor} from "../../../utils/api/metricsApi";
 import {VictoryAxis, VictoryBar, VictoryChart, VictoryTheme} from "victory";
+import {topSongsUrl} from "../../../utils/constantes";
 
 export function TopSongsChart() {
     const [songs, setSongs] = useState([]);
 
     async function fetchContent() {
-        const apiResponse = await getTopSongsListened();
-        console.log("top songs: ", apiResponse.data);
+        const apiResponse = await getTopListenedFor(topSongsUrl);
         setSongs(apiResponse.data);
     }
 
