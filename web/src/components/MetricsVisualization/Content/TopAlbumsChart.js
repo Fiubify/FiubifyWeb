@@ -8,7 +8,6 @@ export function TopAlbumsChart() {
 
     async function fetchContent() {
         const apiResponse = await getTopListenedFor(topAlbumsUrl);
-        console.log("top albums: ", apiResponse.data);
         setAlbums(apiResponse.data);
     }
 
