@@ -5,14 +5,13 @@ import {filterContentByPlan, getSongs} from "../../../utils/api/contentApi";
 export function SongsTierPieChart() {
     const [songs, setSongs] = useState([]);
 
-    async function fetchUsers() {
+    async function fetchContent() {
         const apiResponse = await getSongs();
         setSongs(apiResponse.data);
-        console.log("songs: ", songs);
     }
 
     useEffect(() => {
-        fetchUsers().then();
+        fetchContent().then();
     }, []);
 
     if (songs.length > 0) {
