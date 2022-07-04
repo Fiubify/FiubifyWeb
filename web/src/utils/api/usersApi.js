@@ -1,3 +1,5 @@
+import {freeTier} from "../constantes";
+
 async function getUsers() {
   const response = await fetch(
     'https://fiubify-middleware-staging.herokuapp.com/user/',
@@ -9,8 +11,7 @@ async function getUsers() {
     }
   );
 
-  const fetchResponse = await response.json();
-  return fetchResponse;
+  return await response.json();
 }
 
 async function blockUser(id, token) {
@@ -46,4 +47,15 @@ async function unblockUser(id, token) {
   return response;
 }
 
-export { getUsers, blockUser, unblockUser };
+function filterUsersByPlan(users, isFree) {
+    let usersFiltered = [];
+
+    users.forEach((user) => {
+        if ((user.plan === freeTier && isFree) || (user.plan !== freeTier && !isFree))
+            usersFiltered.push(user);
+    })
+
+    return usersFiltered;
+}
+
+export { getUsers, blockUser, unblockUser, filterUsersByPlan };
