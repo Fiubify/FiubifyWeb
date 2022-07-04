@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { VictoryBar, VictoryChart, VictoryStack, VictoryTheme} from "victory";
 import {creationContentAction, listenedContentAction } from "../../../utils/constantes";
-import {filterContentByAction, getMetricsQtyForDate} from "../../../utils/api/metricsApi";
+import {filterMetricsByAction, getMetricsQtyForDate} from "../../../utils/api/metricsApi";
 
 //TODO: agregar labels a las columnas
 
@@ -10,44 +10,44 @@ export function ContentLastWeek({content}) {
         const data = [
             {
                 day: `${new Date(new Date().setDate(new Date().getDate() - 7)).getDate()}-${new Date(new Date().setDate(new Date().getDate() - 7)).getMonth() + 1}`,
-                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 7)).toDateString(), filterContentByAction(content, listenedContentAction)),
-                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 7)).toDateString(), filterContentByAction(content, creationContentAction)),
+                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 7)).toDateString(), filterMetricsByAction(content, listenedContentAction)),
+                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 7)).toDateString(), filterMetricsByAction(content, creationContentAction)),
         //label: `${getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 7)).toDateString(), content)>0?`L`:``}`            },
             },
             {
                 day: `${new Date(new Date().setDate(new Date().getDate() - 6)).getDate()}-${new Date(new Date().setDate(new Date().getDate() - 6)).getMonth() + 1}`,
-                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 6)).toDateString(), filterContentByAction(content, listenedContentAction)),
-                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 6)).toDateString(), filterContentByAction(content, creationContentAction)),
+                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 6)).toDateString(), filterMetricsByAction(content, listenedContentAction)),
+                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 6)).toDateString(), filterMetricsByAction(content, creationContentAction)),
             },
             {
                 day: `${new Date(new Date().setDate(new Date().getDate() - 5)).getDate()}-${new Date(new Date().setDate(new Date().getDate() - 5)).getMonth() + 1}`,
-                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 5)).toDateString(), filterContentByAction(content, listenedContentAction)),
-                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 5)).toDateString(), filterContentByAction(content, creationContentAction)),
+                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 5)).toDateString(), filterMetricsByAction(content, listenedContentAction)),
+                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 5)).toDateString(), filterMetricsByAction(content, creationContentAction)),
             },
             {
                 day: `${new Date(new Date().setDate(new Date().getDate() - 4)).getDate()}-${new Date(new Date().setDate(new Date().getDate() - 4)).getMonth() + 1}`,
-                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 4)).toDateString(), filterContentByAction(content, listenedContentAction)),
-                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 4)).toDateString(), filterContentByAction(content, creationContentAction)),
+                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 4)).toDateString(), filterMetricsByAction(content, listenedContentAction)),
+                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 4)).toDateString(), filterMetricsByAction(content, creationContentAction)),
             },
             {
                 day: `${new Date(new Date().setDate(new Date().getDate() - 3)).getDate()}-${new Date(new Date().setDate(new Date().getDate() - 3)).getMonth() + 1}`,
-                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 3)).toDateString(), filterContentByAction(content, listenedContentAction)),
-                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 3)).toDateString(), filterContentByAction(content, creationContentAction))
+                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 3)).toDateString(), filterMetricsByAction(content, listenedContentAction)),
+                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 3)).toDateString(), filterMetricsByAction(content, creationContentAction))
             },
             {
                 day: `${new Date(new Date().setDate(new Date().getDate() - 2)).getDate()}-${new Date(new Date().setDate(new Date().getDate() - 2)).getMonth() + 1}`,
-                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 2)).toDateString(), filterContentByAction(content, listenedContentAction)),
-                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 2)).toDateString(), filterContentByAction(content, creationContentAction)),
+                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 2)).toDateString(), filterMetricsByAction(content, listenedContentAction)),
+                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 2)).toDateString(), filterMetricsByAction(content, creationContentAction)),
             },
             {
                 day: `${new Date(new Date().setDate(new Date().getDate() - 1)).getDate()}-${new Date(new Date().setDate(new Date().getDate() - 1)).getMonth() + 1}`,
-                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 1)).toDateString(), filterContentByAction(content, listenedContentAction)),
-                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 1)).toDateString(), filterContentByAction(content, creationContentAction)),
+                metricsQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 1)).toDateString(), filterMetricsByAction(content, listenedContentAction)),
+                metricsCreationQty: getMetricsQtyForDate(new Date(new Date().setDate(new Date().getDate() - 1)).toDateString(), filterMetricsByAction(content, creationContentAction)),
             },
             {
                 day: `${new Date().getDate()}-${new Date().getMonth() + 1}`,
-                metricsQty: getMetricsQtyForDate(new Date().toDateString(), filterContentByAction(content, listenedContentAction)),
-                metricsCreationQty: getMetricsQtyForDate(new Date().toDateString(), filterContentByAction(content, creationContentAction)),
+                metricsQty: getMetricsQtyForDate(new Date().toDateString(), filterMetricsByAction(content, listenedContentAction)),
+                metricsCreationQty: getMetricsQtyForDate(new Date().toDateString(), filterMetricsByAction(content, creationContentAction)),
             },
         ];
 

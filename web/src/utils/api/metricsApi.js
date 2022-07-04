@@ -24,10 +24,10 @@ export async function getAllUsersMetrics(){
     }
 }
 
-export function getMetricsQtyForDate(date, content) {
+export function getMetricsQtyForDate(date, metrics) {
     let qty = 0;
-    content.forEach((contentMetric) => {
-        if (new Date(Date.parse(contentMetric.createdAt)).toDateString() === (new Date(Date.parse(date)).toDateString())) {
+    metrics.forEach((metric) => {
+        if (new Date(Date.parse(metric.createdAt)).toDateString() === (new Date(Date.parse(date)).toDateString())) {
             qty += 1;
         }
     })
@@ -35,15 +35,15 @@ export function getMetricsQtyForDate(date, content) {
     return qty.valueOf();
 }
 
-export function filterContentByAction(content, action) {
-    let contentFiltered = [];
+export function filterMetricsByAction(metrics, action) {
+    let metricsFiltered = [];
 
-    content.forEach((contentMetric) => {
-        if (contentMetric.action === action)
-            contentFiltered.push(contentMetric);
+    metrics.forEach((metric) => {
+        if (metric.action === action)
+            metricsFiltered.push(metric);
     })
 
-    return contentFiltered;
+    return metricsFiltered;
 }
 
 export function filterContentByTier(content, isFree) {
@@ -55,4 +55,15 @@ export function filterContentByTier(content, isFree) {
     })
 
     return contentFiltered;
+}
+
+export function filterUserMetricByType(users, type) {
+    let usersFiltered = [];
+
+    users.forEach((userMetric) => {
+        if (userMetric.type === type)
+            usersFiltered.push(userMetric);
+    })
+
+    return usersFiltered;
 }
