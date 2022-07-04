@@ -33,7 +33,7 @@ export function TopSongsChart() {
                         style={{tickLabels: {fontSize: 10}}}
                     />
                     <VictoryBar
-                        data={songs}
+                        data={songs.slice(0,5)}
                         x="_id.songName"
                         y="count"
                         animate={{

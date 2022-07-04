@@ -34,7 +34,7 @@ export function TopGenresChart() {
                     />
                     <VictoryBar
                         barRatio={0.8}
-                        data={genres}
+                        data={genres.slice(0,5)}
                         x="_id"
                         y="count"
                         animate={{

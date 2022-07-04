@@ -34,7 +34,7 @@ export function TopAlbumsChart() {
                     />
                     <VictoryBar
                         barRatio={0.8}
-                        data={albums}
+                        data={albums.slice(0,5)}
                         x="_id.albumName"
                         y="count"
                         animate={{
