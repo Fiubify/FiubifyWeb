@@ -12,6 +12,7 @@ import {auth} from "../../firebase";
 import Logo from "./../../assets/logo.png";
 import {TbLogout} from "react-icons/tb";
 import {ContentMetricsGraphs} from "../MetricsVisualization/Content/ContentMetricsGraphs";
+import {UserMetricsGraphs} from "../MetricsVisualization/Users/UserMetricsGraphs";
 
 function HomeNavBar({setToken}) {
     const navigate = useNavigate();
@@ -140,6 +141,7 @@ function HomeNavBar({setToken}) {
                 </AppBar>
             </Box>
             <ContentMetricsGraphs/>
+            <UserMetricsGraphs/>
         </div>
     );
 }
