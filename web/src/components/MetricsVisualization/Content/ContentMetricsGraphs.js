@@ -3,6 +3,7 @@ import {filterMetricsByAction, getAllContentMetrics} from "../../../utils/api/me
 import {SongsListenedByDayChar} from "./SongsListenedByDayChar"
 import {creationContentAction, listenedContentAction} from "../../../utils/constantes";
 import {SongsTierPieChart} from "./SongsTierPieChart";
+import {TopSongsChart} from "./TopSongsChart";
 
 function getCurrentDate(separator='-'){
 
@@ -30,6 +31,10 @@ export function ContentMetricsGraphs() {
             <SongsListenedByDayChar content={filterMetricsByAction(content, creationContentAction)}/>
             <h2>Songs Proportion by Plan</h2>
             <SongsTierPieChart/>
+            <h2>Top Songs listened</h2>
+            <TopSongsChart/>
+            <h2>Top Albums listened</h2>
+            <h2>Top Genres listened</h2>
             {/*<VictoryChart
                 // adding the material theme provided with Victory
                 theme={VictoryTheme.material}
