@@ -17,7 +17,6 @@ export async function getAllUsersMetrics(){
         let response = await axios.get(
             userMetricsUrl
         );
-        console.log("user metrics: ", response.data)
         return response.data;
     } catch (e) {
         throw e;
