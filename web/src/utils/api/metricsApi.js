@@ -1,4 +1,4 @@
-import {contentMetricsUrl, freeTier, userMetricsUrl} from "../constantes";
+import {contentMetricsUrl, freeTier, topSongsUrl, userMetricsUrl} from "../constantes";
 import axios from "axios";
 
 export async function getAllContentMetrics(){
@@ -32,6 +32,17 @@ export function getMetricsQtyForDate(date, metrics) {
     })
     //console.log("Date: ", new Date(Date.parse(date)).toDateString(), " --> qty: ", qty);
     return qty.valueOf();
+}
+
+export async function getTopSongsListened() {
+    try {
+        let response = await axios.get(
+            topSongsUrl
+        );
+        return response.data;
+    } catch (e) {
+        throw e;
+    }
 }
 
 export function filterMetricsByAction(metrics, action) {
