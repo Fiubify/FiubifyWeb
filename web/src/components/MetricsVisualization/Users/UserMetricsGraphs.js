@@ -5,6 +5,7 @@ import {
     signupUserAction
 } from "../../../utils/constantes";
 import {UserMetricsByDayChar} from "./UserMetricsByDayChart";
+import {UsersPieChart} from "./UsersPieChart";
 
 export function UserMetricsGraphs() {
     const [users, setUsers] = useState([]);
@@ -18,6 +19,7 @@ export function UserMetricsGraphs() {
             <UserMetricsByDayChar users={filterMetricsByAction(users, loginUserAction)}/>
             <h2>Last week's signups</h2>
             <UserMetricsByDayChar users={filterMetricsByAction(users, signupUserAction)}/>
+            <UsersPieChart/>
         </div>);
     }
     return "";
