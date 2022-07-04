@@ -1,3 +1,5 @@
+import {freeTier} from "../constantes";
+
 async function getSongs() {
     const response = await fetch(
         `https://fiubify-middleware-staging.herokuapp.com/contents/songs/`,
@@ -54,4 +56,15 @@ async function getTracksFromPlaylist(id) {
     return await response.json();
 }
 
-export {getSongs, getAlbums, getPlaylists, getTracksFromPlaylist};
+function filterContentByPlan(contents, isFree){
+    let contentFiltered = [];
+
+    contents.forEach((content) => {
+        if ((content.tier === freeTier && isFree) || (content.tier !== freeTier && !isFree))
+            contentFiltered.push(content);
+    })
+
+    return contentFiltered;
+}
+
+export {getSongs, getAlbums, getPlaylists, getTracksFromPlaylist, filterContentByPlan};
