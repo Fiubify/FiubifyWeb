@@ -5,6 +5,7 @@ import {creationContentAction, listenedContentAction} from "../../../utils/const
 import {SongsTierPieChart} from "./SongsTierPieChart";
 import {TopSongsChart} from "./TopSongsChart";
 import {TopAlbumsChart} from "./TopAlbumsChart";
+import {TopGenresChart} from "./TopGenresChart";
 
 function getCurrentDate(separator='-'){
 
@@ -37,6 +38,7 @@ export function ContentMetricsGraphs() {
             <h2>Top Albums listened</h2>
             <TopAlbumsChart/>
             <h2>Top Genres listened</h2>
+            <TopGenresChart/>
             {/*<VictoryChart
                 // adding the material theme provided with Victory
                 theme={VictoryTheme.material}
