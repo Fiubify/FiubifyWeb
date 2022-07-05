@@ -15,11 +15,10 @@ export function SongsTierPieChart() {
     }, []);
 
     if (songs.length > 0) {
-        const freeUsers = filterContentByPlan(songs, true);
-        console.log("freeUsers: ", freeUsers.length)
+        const freeSongs = filterContentByPlan(songs, true);
         const data = [
-            {x: "Free-Songs", y: freeUsers.length},
-            {x: "Premium-Songs", y: (songs.length - freeUsers.length)},
+            {x: "Free-Songs", y: freeSongs.length},
+            {x: "Premium-Songs", y: (songs.length - freeSongs.length)},
         ]
         return (
             <VictoryPie
