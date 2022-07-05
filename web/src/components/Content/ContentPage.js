@@ -9,7 +9,7 @@ import SongsTable from "./SongsTable";
 import AlbumsTable from "./AlbumsTable";
 import PlaylistsTable from "./PlaylistsTable";
 
-export default function ContentPage() {
+export default function ContentPage({token}) {
   const navigate = useNavigate();
   const [value, setValue] = useState("1");
 
@@ -93,7 +93,7 @@ export default function ContentPage() {
             </TabList>
           </Box>
           <TabPanel sx={{ padding: 0 }} value="1">
-            <SongsTable />
+            <SongsTable token={token}/>
           </TabPanel>
           <TabPanel sx={{ padding: 0 }} value="2">
             <AlbumsTable />
