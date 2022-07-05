@@ -1,4 +1,4 @@
-import {VictoryPie} from "victory";
+import {VictoryLabel, VictoryPie} from "victory";
 import {useEffect, useState} from "react";
 import {filterUsersByPlan, getUsers} from "../../../utils/api/usersApi";
 
@@ -22,6 +22,8 @@ export function UsersPieChart() {
         ]
         return (
             <VictoryPie
+                labelComponent={<VictoryLabel style={{fontSize: 7, fontStyle:"italic", fill:"#006e95"}} />}
+                padding={{top: 30, bottom: 50}}
                 colorScale={["tomato", "orange"]}
                 data={data}
                 animate={{

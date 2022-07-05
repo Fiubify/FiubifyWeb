@@ -1,5 +1,5 @@
 import { filterUserMetricByType, getMetricsQtyForDate} from "../../../utils/api/metricsApi";
-import {VictoryBar, VictoryChart, VictoryStack, VictoryTheme} from "victory";
+import {VictoryAxis, VictoryBar, VictoryChart, VictoryStack, VictoryTheme} from "victory";
 import PropTypes from "prop-types";
 import {
     emailUserType,
@@ -61,9 +61,24 @@ export function UserMetricsByDayChar({users}) {
                 <VictoryChart
                     theme={VictoryTheme.material}
                     domainPadding={20}
-                    height={200}
+                    height={300}
                     width={600}
                 >
+                    <VictoryAxis
+                        style={{tickLabels: {fill: "#006e95"}, axis:{stroke: "#006e95"}, ticks:{stroke: "#006e95"}, grid: {
+                                stroke: '#10bbfc',
+                                strokeDasharray: '10',
+                                strokeWidth: "0.5"
+                            }}}
+                    />
+                    <VictoryAxis
+                        dependentAxis
+                        style={{tickLabels: {fill: "#006e95"}, axis:{stroke: "#006e95"}, ticks:{stroke: "#006e95"}, grid: {
+                                stroke: '#10bbfc',
+                                strokeDasharray: '10',
+                                strokeWidth: "0.5"
+                            }}}
+                    />
                     <VictoryStack
                         colorScale={["gold", "orange"]}
                         style={{
