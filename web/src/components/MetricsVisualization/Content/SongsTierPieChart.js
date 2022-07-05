@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {VictoryPie} from "victory";
+import {VictoryPie, VictoryLabel} from "victory";
 import {filterContentByPlan, getSongs} from "../../../utils/api/contentApi";
 
 export function SongsTierPieChart() {
@@ -20,8 +20,11 @@ export function SongsTierPieChart() {
             {x: "Free-Songs", y: freeSongs.length},
             {x: "Premium-Songs", y: (songs.length - freeSongs.length)},
         ]
+
         return (
             <VictoryPie
+                labelComponent={<VictoryLabel style={{fontSize: 7, fontStyle:"italic", fill:"#006e95"}} />}
+                padding={{top: 15, bottom: 50}}
                 colorScale={["tomato", "orange"]}
                 data={data}
                 animate={{

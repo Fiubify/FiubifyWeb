@@ -1,8 +1,8 @@
 import {filterContentByTier, getMetricsQtyForDate} from "../../../utils/api/metricsApi";
-import {VictoryBar, VictoryChart, VictoryStack, VictoryTheme} from "victory";
+import {VictoryAxis, VictoryBar, VictoryChart, VictoryStack, VictoryTheme} from "victory";
 import PropTypes from "prop-types";
 
-export function SongsListenedByDayChar({content}) {
+export function SongsByDayBarChar({content}) {
     if (content.length > 0) {
         const data = [
             {
@@ -49,20 +49,35 @@ export function SongsListenedByDayChar({content}) {
 
         return (
             <div>
-                <h4>Amarillo --> Free</h4>
-                <h4>Naranja --> Premium</h4>
+                <h4 style={{color: "#006e95"}}>Amarillo --> Free</h4>
+                <h4 style={{color: "#006e95"}}>Naranja --> Premium</h4>
                 <VictoryChart
                     // adding the material theme provided with Victory
                     theme={VictoryTheme.material}
                     domainPadding={20}
-                    height={200}
+                    height={300}
                     width={600}
                 >
+                    <VictoryAxis
+                        style={{tickLabels: {fill: "#006e95"}, axis:{stroke: "#006e95"}, ticks:{stroke: "#006e95"}, grid: {
+                                stroke: '#10bbfc',
+                                strokeDasharray: '10',
+                                strokeWidth: "0.5"
+                            }}}
+                    />
+                    <VictoryAxis
+                        dependentAxis
+                        style={{tickLabels: {fill: "#006e95"}, axis:{stroke: "#006e95"}, ticks:{stroke: "#006e95"}, grid: {
+                                stroke: '#10bbfc',
+                                strokeDasharray: '10',
+                                strokeWidth: "0.5"
+                            }}}
+                    />
                     <VictoryStack
                         colorScale={["gold", "orange"]}
                         style={{
                             data: {width: 30},
-                            labels: {padding: -20}
+                            labels: {padding: -20, color: "#006e95"}
                         }}
                     >
                         <VictoryBar
@@ -87,10 +102,10 @@ export function SongsListenedByDayChar({content}) {
                 </VictoryChart>
             </div>)
     }
-    return (<h4>No content available</h4>)
+    return (<h4 style={{color: "#006e95"}}>No content available</h4>)
 }
 
-SongsListenedByDayChar.propTypes = {
+SongsByDayBarChar.propTypes = {
     content: PropTypes.arrayOf(
         PropTypes.shape({
             action: PropTypes.string.isRequired,

@@ -17,20 +17,28 @@ export function TopAlbumsChart() {
 
     if (albums.length > 0) {
         return (
-            <div>
+            <div style={{width:"100%"}}>
                 <VictoryChart
                     // adding the material theme provided with Victory
                     theme={VictoryTheme.material}
                     domainPadding={50}
-                    height={200}
+                    height={250}
                     width={300}
                 >
                     <VictoryAxis
-                        style={{tickLabels: {fontSize: 7}}}
+                        style={{tickLabels: {fill: "#006e95", fontSize: 5}, axis:{stroke: "#006e95"}, ticks:{stroke: "#006e95"}, grid: {
+                                stroke: '#10bbfc',
+                                strokeDasharray: '10',
+                                strokeWidth: "0.5"
+                            }}}
                     />
                     <VictoryAxis
                         dependentAxis
-                        style={{tickLabels: {fontSize: 10}}}
+                        style={{tickLabels: {fill: "#006e95", fontSize: 10}, axis:{stroke: "#006e95"}, ticks:{stroke: "#006e95"}, grid: {
+                                stroke: '#10bbfc',
+                                strokeDasharray: '10',
+                                strokeWidth: "0.5"
+                            }}}
                     />
                     <VictoryBar
                         barRatio={0.8}
@@ -42,7 +50,7 @@ export function TopAlbumsChart() {
                             onLoad: {duration: 1000}
                         }}
                         style={{
-                            data: {fill: f => f.fill}
+                            data: {fill: "gold"}
                         }}
                     />
                 </VictoryChart>
