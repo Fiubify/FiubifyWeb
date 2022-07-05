@@ -56,8 +56,8 @@ export function UserMetricsByDayChar({users}) {
 
         return (
             <div>
-                <h4>Amarillo --> Email</h4>
-                <h4>Naranja --> Federated</h4>
+                <h4 style={{color: "#006e95"}}>Amarillo --> Email</h4>
+                <h4 style={{color: "#006e95"}}>Naranja --> Federated</h4>
                 <VictoryChart
                     theme={VictoryTheme.material}
                     domainPadding={20}
@@ -108,7 +108,7 @@ export function UserMetricsByDayChar({users}) {
                 </VictoryChart>
             </div>)
     }
-    return (<h4>No content available</h4>)
+    return (<h4 style={{color: "#006e95"}}>No content available</h4>)
 }
 
 UserMetricsByDayChar.propTypes = {
