@@ -17,7 +17,7 @@ export default function App() {
                     <Route exact path="/" element={<Login setToken={setToken}/>} />
                     <Route exact path="/dashboard" element={<LoggedInChecker component={<HomeNavBar setToken={setToken}/>} token={token}/>}/>
                     <Route exact path="/users" element={<LoggedInChecker component={<UsersPage token={token}/>} token={token}/>}/>
-                    <Route exact path="/contents" element={<LoggedInChecker component={<ContentPage/>} token={token}/>}/>
+                    <Route exact path="/contents" element={<LoggedInChecker component={<ContentPage token={token}/>} token={token}/>}/>
                 </Routes>
             </Router>
         </div>
