@@ -67,4 +67,34 @@ function filterContentByPlan(contents, isFree){
     return contentFiltered;
 }
 
-export {getSongs, getAlbums, getPlaylists, getTracksFromPlaylist, filterContentByPlan};
+async function blockSong(id, token) {
+    return await fetch(
+        `https://fiubify-middleware-staging.herokuapp.com/contents/songs/${id}/block`,
+        {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                token: token,
+            })
+        }
+    );
+}
+
+async function unblockSong(id, token) {
+    return await fetch(
+        `https://fiubify-middleware-staging.herokuapp.com/contents/songs/${id}/unblock`,
+        {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                token: token,
+            })
+        }
+    );
+}
+
+export {getSongs, getAlbums, getPlaylists, getTracksFromPlaylist, filterContentByPlan, blockSong, unblockSong};
