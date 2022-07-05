@@ -17,11 +17,6 @@ import {UserMetricsGraphs} from "../MetricsVisualization/Users/UserMetricsGraphs
 function HomeNavBar({setToken}) {
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     getAllContentMetrics().then();
-    //     getAllUsersMetrics().then();
-    // }, [])
-
     return (
         <div>
             <Box sx={{flexGrow: 1}}>
