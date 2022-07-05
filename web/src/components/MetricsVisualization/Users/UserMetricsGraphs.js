@@ -23,11 +23,11 @@ export function UserMetricsGraphs() {
                 justifyContent: "center",
             }}>
                 <div style={{width: "45%"}}>
-                    <h1>Last week's logins</h1>
+                    <h1 style={{color: "#006e95"}}>Last week's logins</h1>
                     <UserMetricsByDayChar users={filterMetricsByAction(users, loginUserAction)}/>
                 </div>
                 <div style={{width: "45%"}}>
-                    <h1>Last week's signups</h1>
+                    <h1 style={{color: "#006e95"}}>Last week's signups</h1>
                     <UserMetricsByDayChar users={filterMetricsByAction(users, signupUserAction)}/>
                 </div>
             </div>
@@ -42,7 +42,7 @@ export function UserMetricsGraphs() {
                 marginTop: "2%",
                 marginBottom: "-3%"
             }}>
-                <h1 style={{width: "100%", marginBottom:"3%", marginTop:"2%"}}>Users Proportion by Plan</h1>
+                <h1 style={{width: "100%", marginBottom:"3%", marginTop:"2%", color: "#006e95"}}>Users Proportion by Plan</h1>
                 <UsersPieChart/>
             </div>
         </div>);
