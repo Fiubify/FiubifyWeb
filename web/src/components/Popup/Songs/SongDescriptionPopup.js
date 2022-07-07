@@ -11,7 +11,7 @@ export default function SongDescriptionPopup({ trigger, setTrigger, song }) {
           <div className="popup-inner">
             <h2>{title}</h2>
             <DescriptionWrapper description={description} />
-            <button className="close-btn" onClick={() => setTrigger(false)}>
+            <button className="close_btn" onClick={() => setTrigger(false)}>
               Close
             </button>
           </div>

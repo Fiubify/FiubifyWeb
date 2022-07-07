@@ -16,7 +16,7 @@ export default function PlaylistPopup({ trigger, setTrigger, playlist }) {
             <OwnersWrapper users={owners} />
             <h4>Tracks</h4>
             <TracksWrapper playlist_id={_id} />
-            <button className="close-btn" onClick={() => setTrigger(false)}>
+            <button className="close_btn" onClick={() => setTrigger(false)}>
               Close
             </button>
           </div>

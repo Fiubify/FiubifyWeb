@@ -13,7 +13,7 @@ export default function AlbumPopup({ trigger, setTrigger, album }) {
             <h2>{title}</h2>
             <h4>Tracks</h4>
             <AlbumTracks tracks={tracks} />
-            <button className="close-btn" onClick={() => setTrigger(false)}>
+            <button className="close_btn" onClick={() => setTrigger(false)}>
               Close
             </button>
           </div>

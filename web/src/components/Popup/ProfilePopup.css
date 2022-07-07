@@ -24,6 +24,7 @@
 
 .popup-inner {
   position: relative;
+  padding: 2%;
   width: 100%;
   max-width: 640px;
   background-color: #cae3ea;
