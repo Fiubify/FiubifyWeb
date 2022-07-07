@@ -98,6 +98,30 @@ function HomeNavBar({setToken}) {
                         <Box
                             sx={{
                                 flexGrow: 1,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <Button
+                                onClick={() => navigate("/services")}
+                                sx={{
+                                    my: 2,
+                                    color: "white",
+                                    display: "block",
+                                    width: "100%",
+                                    paddingTop: "5%",
+                                    paddingBottom: "5%",
+                                    borderRight: "1px solid white",
+                                    borderRadius: 0,
+                                }}
+                            >
+                                Services
+                            </Button>
+                        </Box>
+                        <Box
+                            sx={{
+                                flexGrow: 1,
                                 margin: 0,
                                 display: "flex",
                                 alignItems: "center",
